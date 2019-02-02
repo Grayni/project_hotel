@@ -99,7 +99,7 @@ body
   svg
     min-width: 40px
   a
-    font: 17px 'Futura', Arial, sans-serif
+    font: 15px 'Futura', Arial, sans-serif
     color: #6f5c56
     display: flex
     align-items: center
@@ -314,7 +314,7 @@ body
 .phone-wrap
   display: flex
   position: absolute
-  left: -210px
+  left: -198px
   top: 0
   align-items: center
   padding: 9px 0 9px 10px
