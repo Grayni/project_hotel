@@ -13,6 +13,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "hoek": "^6.1.2",
     "sal.js": "^0.5.0",
     "semistandard": "^13.0.1",
     "vue": "^2.5.2",
