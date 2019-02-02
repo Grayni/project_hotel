@@ -23,6 +23,6 @@ export default {
 
 <style lang="sass" scoped>
   .button-call
-    font: bold 14px 'Futura', Arial, sans-serif
+    font: bold 15px 'Futura', Arial, sans-serif
     text-transform: uppercase
 </style>
