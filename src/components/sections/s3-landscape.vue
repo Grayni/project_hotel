@@ -2,7 +2,6 @@
   .landscape(is="section")
     .wrap-landscape
       span.text-landscape Следующие дополнительные услуги мы  предоставляем бесплатно для каждого нашего посетителя:
-      
       img.background-services(src="/static/backgrounds/free-services.jpg", alt="Бесплатные услуги от базы отдыха Уржум")
 </template>
 
