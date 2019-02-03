@@ -21,129 +21,133 @@
         <defs>
           <!-- filter blur -->
           <Gauss></Gauss>
-          <linearGradient
-            id="b"
-            x1="357.45"
-            y1="814.69"
-            x2="357.45"
-            y2="989.78"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop offset="0" stop-color="#fff"></stop>
-            <stop offset="0.52" stop-color="#ffdfff"></stop>
-            <stop offset="0.95" stop-color="#d4dcff"></stop>
-          </linearGradient>
-          <linearGradient
-            id="c"
-            x1="2075.77"
-            y1="774.87"
-            x2="2075.77"
-            y2="949.96"
-            gradientTransform="matrix(-1, 0, 0, 1, 3878.82, 0)"
-            xlink:href="#b"
-          ></linearGradient>
-          <linearGradient
-            id="d"
-            x1="420.63"
-            y1="787.73"
-            x2="420.63"
-            y2="962.82"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop offset="0" stop-color="#fff" stop-opacity="0.3"></stop>
-            <stop offset="0.52" stop-color="#ffdfff"></stop>
-            <stop offset="0.95" stop-color="#d4dcff"></stop>
-          </linearGradient>
-          <linearGradient id="e" x1="270.63" y1="845.88" x2="270.63" y2="1020.97" xlink:href="#d"></linearGradient>
-          <linearGradient id="f" x1="400.2" y1="914.18" x2="400.2" y2="1089.27" xlink:href="#b"></linearGradient>
-          <linearGradient
-            id="g"
-            x1="523.59"
-            y1="833.88"
-            x2="523.59"
-            y2="1008.97"
-            gradientTransform="translate(174.88 -62.99) rotate(10.49)"
-            xlink:href="#b"
-          ></linearGradient>
-          <linearGradient id="h" x1="503.63" y1="856.76" x2="503.63" y2="1031.85" xlink:href="#d"></linearGradient>
-          <linearGradient id="i" x1="550.51" y1="889.16" x2="550.51" y2="1064.25" xlink:href="#b"></linearGradient>
-          <linearGradient id="j" x1="722.15" y1="871.13" x2="722.15" y2="1046.22" xlink:href="#d"></linearGradient>
-          <linearGradient id="k" x1="821.6" y1="954.84" x2="821.6" y2="1129.93" xlink:href="#b"></linearGradient>
-          <linearGradient id="l" x1="888.63" y1="885.1" x2="888.63" y2="1060.19" xlink:href="#b"></linearGradient>
-          <linearGradient id="m" x1="985.06" y1="896.13" x2="985.06" y2="1071.22" xlink:href="#b"></linearGradient>
-          <linearGradient id="n" x1="1115.56" y1="972.65" x2="1115.56" y2="1147.74" xlink:href="#b"></linearGradient>
-          <linearGradient
-            id="o"
-            x1="1412.12"
-            y1="856.76"
-            x2="1412.12"
-            y2="1031.85"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop offset="0" stop-color="#fff" stop-opacity="0.7"></stop>
-            <stop offset="0.52" stop-color="#ffdfff"></stop>
-            <stop offset="0.95" stop-color="#d4dcff"></stop>
-          </linearGradient>
-          <linearGradient id="p" x1="1393.42" y1="914.18" x2="1393.42" y2="1089.27" xlink:href="#b"></linearGradient>
-          <linearGradient id="q" x1="1643.05" y1="833.07" x2="1643.05" y2="1008.16" xlink:href="#o"></linearGradient>
-          <linearGradient id="r" x1="1816.06" y1="862.41" x2="1816.06" y2="1037.51" xlink:href="#b"></linearGradient>
-          <linearGradient id="s" x1="1796.46" y1="914.18" x2="1796.46" y2="1089.27" xlink:href="#b"></linearGradient>
-          <linearGradient
-            id="t"
-            x1="1963.24"
-            y1="833.07"
-            x2="1963.24"
-            y2="1008.16"
-            gradientTransform="matrix(-1, 0, 0, 1, 3878.82, 0)"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop offset="0" stop-color="#fff" stop-opacity="0.5"></stop>
-            <stop offset="0.52" stop-color="#ffdfff"></stop>
-            <stop offset="0.95" stop-color="#d4dcff"></stop>
-          </linearGradient>
-          <linearGradient
-            id="u"
-            x1="2135.99"
-            y1="896.13"
-            x2="2135.99"
-            y2="1071.22"
-            gradientTransform="matrix(-1, 0, 0, 1, 3878.82, 0)"
-            xlink:href="#b"
-          ></linearGradient>
-          <linearGradient
-            id="v"
-            x1="2135.99"
-            y1="860.78"
-            x2="2135.99"
-            y2="1035.87"
-            gradientTransform="matrix(-1, 0, 0, 1, 3878.82, 0)"
-            xlink:href="#b"
-          ></linearGradient>
-          <linearGradient
-            id="w"
-            x1="2280.43"
-            y1="894.49"
-            x2="2280.43"
-            y2="1069.58"
-            gradientTransform="matrix(-1, 0, 0, 1, 3878.82, 0)"
-            xlink:href="#b"
-          ></linearGradient>
-          <linearGradient id="x" x1="1114.3" y1="856.76" x2="1114.3" y2="1031.85" xlink:href="#d"></linearGradient>
-          <linearGradient
-            id="y"
-            x1="2651.28"
-            y1="967.2"
-            x2="2651.28"
-            y2="1142.29"
-            gradientTransform="matrix(-1, 0, 0, 1, 3878.82, 0)"
-            xlink:href="#b"
-          ></linearGradient>
+          <filter id="f1" y="-5" height="40" width="160">
+            <feGaussianBlur stdDeviation="6"/>
+          </filter>
         </defs>
+        <linearGradient
+          id="b"
+          x1="357.45"
+          y1="814.69"
+          x2="357.45"
+          y2="989.78"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop offset="0" stop-color="#fff"></stop>
+          <stop offset="0.52" stop-color="#ffdfff"></stop>
+          <stop offset="0.95" stop-color="#d4dcff"></stop>
+        </linearGradient>
+        <linearGradient
+          id="c"
+          x1="2075.77"
+          y1="774.87"
+          x2="2075.77"
+          y2="949.96"
+          gradientTransform="matrix(-1, 0, 0, 1, 3878.82, 0)"
+          xlink:href="#b"
+        ></linearGradient>
+        <linearGradient
+          id="d"
+          x1="420.63"
+          y1="787.73"
+          x2="420.63"
+          y2="962.82"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop offset="0" stop-color="#fff" stop-opacity="0.3"></stop>
+          <stop offset="0.52" stop-color="#ffdfff"></stop>
+          <stop offset="0.95" stop-color="#d4dcff"></stop>
+        </linearGradient>
+        <linearGradient id="e" x1="270.63" y1="845.88" x2="270.63" y2="1020.97" xlink:href="#d"></linearGradient>
+        <linearGradient id="f" x1="400.2" y1="914.18" x2="400.2" y2="1089.27" xlink:href="#b"></linearGradient>
+        <linearGradient
+          id="g"
+          x1="523.59"
+          y1="833.88"
+          x2="523.59"
+          y2="1008.97"
+          gradientTransform="translate(174.88 -62.99) rotate(10.49)"
+          xlink:href="#b"
+        ></linearGradient>
+        <linearGradient id="h" x1="503.63" y1="856.76" x2="503.63" y2="1031.85" xlink:href="#d"></linearGradient>
+        <linearGradient id="i" x1="550.51" y1="889.16" x2="550.51" y2="1064.25" xlink:href="#b"></linearGradient>
+        <linearGradient id="j" x1="722.15" y1="871.13" x2="722.15" y2="1046.22" xlink:href="#d"></linearGradient>
+        <linearGradient id="k" x1="821.6" y1="954.84" x2="821.6" y2="1129.93" xlink:href="#b"></linearGradient>
+        <linearGradient id="l" x1="888.63" y1="885.1" x2="888.63" y2="1060.19" xlink:href="#b"></linearGradient>
+        <linearGradient id="m" x1="985.06" y1="896.13" x2="985.06" y2="1071.22" xlink:href="#b"></linearGradient>
+        <linearGradient id="n" x1="1115.56" y1="972.65" x2="1115.56" y2="1147.74" xlink:href="#b"></linearGradient>
+        <linearGradient
+          id="o"
+          x1="1412.12"
+          y1="856.76"
+          x2="1412.12"
+          y2="1031.85"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop offset="0" stop-color="#fff" stop-opacity="0.7"></stop>
+          <stop offset="0.52" stop-color="#ffdfff"></stop>
+          <stop offset="0.95" stop-color="#d4dcff"></stop>
+        </linearGradient>
+        <linearGradient id="p" x1="1393.42" y1="914.18" x2="1393.42" y2="1089.27" xlink:href="#b"></linearGradient>
+        <linearGradient id="q" x1="1643.05" y1="833.07" x2="1643.05" y2="1008.16" xlink:href="#o"></linearGradient>
+        <linearGradient id="r" x1="1816.06" y1="862.41" x2="1816.06" y2="1037.51" xlink:href="#b"></linearGradient>
+        <linearGradient id="s" x1="1796.46" y1="914.18" x2="1796.46" y2="1089.27" xlink:href="#b"></linearGradient>
+        <linearGradient
+          id="t"
+          x1="1963.24"
+          y1="833.07"
+          x2="1963.24"
+          y2="1008.16"
+          gradientTransform="matrix(-1, 0, 0, 1, 3878.82, 0)"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop offset="0" stop-color="#fff" stop-opacity="0.5"></stop>
+          <stop offset="0.52" stop-color="#ffdfff"></stop>
+          <stop offset="0.95" stop-color="#d4dcff"></stop>
+        </linearGradient>
+        <linearGradient
+          id="u"
+          x1="2135.99"
+          y1="896.13"
+          x2="2135.99"
+          y2="1071.22"
+          gradientTransform="matrix(-1, 0, 0, 1, 3878.82, 0)"
+          xlink:href="#b"
+        ></linearGradient>
+        <linearGradient
+          id="v"
+          x1="2135.99"
+          y1="860.78"
+          x2="2135.99"
+          y2="1035.87"
+          gradientTransform="matrix(-1, 0, 0, 1, 3878.82, 0)"
+          xlink:href="#b"
+        ></linearGradient>
+        <linearGradient
+          id="w"
+          x1="2280.43"
+          y1="894.49"
+          x2="2280.43"
+          y2="1069.58"
+          gradientTransform="matrix(-1, 0, 0, 1, 3878.82, 0)"
+          xlink:href="#b"
+        ></linearGradient>
+        <linearGradient id="x" x1="1114.3" y1="856.76" x2="1114.3" y2="1031.85" xlink:href="#d"></linearGradient>
+        <linearGradient
+          id="y"
+          x1="2651.28"
+          y1="967.2"
+          x2="2651.28"
+          y2="1142.29"
+          gradientTransform="matrix(-1, 0, 0, 1, 3878.82, 0)"
+          xlink:href="#b"
+        ></linearGradient>
+
         <g class="sky-block">
           <path
             class="b"
             d="M317.37,846.72c-19,8-51-9-74-7s-65,11-76,20-18,19-18,28,3,28,18,37,43,19,61,18,34-12,45-10,30,10,36,23,28,33,38,32,55,5.07,69,0,30-9,46-32,5-48,18-58,22-20,46-21,41-19,39-29-5.75-34-40.87-33-70.12,15-90.12,31-21,16-38-1-43-14-54-11S336.37,838.72,317.37,846.72Z"
-          ></path>
+           ></path>
           <path
             class="c"
             d="M1843.12,806.9c19,8,51-9,74-7s65,11,76,20,18,19,18,28-3,28-18,37-43,19-61,18-34-12-45-10-30,10-36,23-28,33-38,32-55,5.07-69,0-30-9-46-32-5-48-18-58-22-20-46-21-41-19-39-29,5.75-34,40.88-33,70.13,15,90.13,31,21,16,38-1,43-14,54-11S1824.12,798.9,1843.12,806.9Z"
@@ -4261,7 +4265,6 @@ export default {
 
 <!-- styles -->
 <style lang="sass" scoped>
-
 #idSky
   background: #edfdff
   background: -moz-linear-gradient(top, #edfdff 0%, #edfdff 16%, #f9b9b1 50%, #a8d6e9 100%)
@@ -4270,7 +4273,7 @@ export default {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#edfdff', endColorstr='#a8d6e9',GradientType=0 )
   position: relative
   z-index: 0
-  width: 100%
+  width: 100vw
   height: 122vh
   transform: translate3d(0, 0, 0)
   top: 0
@@ -4589,12 +4592,13 @@ export default {
     transform: translateX(0px)
 
 .sky-block
-  -webkit-filter: url("#blur")
-  -moz-filter: url("#blur")
-  filter: url("#blur")
+  // -webkit-filter: blur(25)
+  // -moz-filter: blur(25)
+  // filter: blur(25)
   animation: swing 8s cubic-bezier(.1,.33,.33,.1)
   animation-iteration-count: infinite
   transform: translate3d(0, 0, 0)
+  filter: url(#f1)
 
 .wrap-img
   opacity: 0
