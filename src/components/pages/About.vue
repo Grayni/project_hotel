@@ -4,27 +4,23 @@
 
 <script>
 export default {
-  name: "About",
+  name: 'About',
   metaInfo: {
-    title: "О нас"
+    title: 'О нас'
   },
-  data() {
+  data () {
     return {
       counter: 0
-    };
+    }
   },
   methods: {
-    hoverOn: function(event) {
-      event.target.style;
-      () => {
-        
-      }
+    hoverOn: function (event) {
     }
   }
-};
+}
 </script>
 
-<style lang="stylus" scoped>
+<style lang="sass" scoped>
   img
-    width 100%
+    width: 100%
 </style>
