@@ -15,8 +15,17 @@ const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
 
 const devWebpackConfig = merge(baseWebpackConfig, {
+  resolve: {
+    alias: {
+      "ScrollMagicGSAP": "scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap",
+      "debug.addIndicators": "scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js"
+    }
+  },
   module: {
-    rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap, usePostCSS: true })
+    rules: [
+      ...utils.styleLoaders({ sourceMap: config.dev.cssSourceMap, usePostCSS: true }),
+      { test: /\.js$/, loader: "imports-loader?define=>false" }
+    ]
   },
   // cheap-module-eval-source-map is faster for development
   devtool: config.dev.devtool,

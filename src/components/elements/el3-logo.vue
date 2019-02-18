@@ -71,6 +71,8 @@ export default {
   padding: 3px 30px
   width: 100px
   height: auto
+  a, svg
+    outline-color: rgba(0,0,0,0)
 
 .branch
   fill: rgba(0,0,0,0)

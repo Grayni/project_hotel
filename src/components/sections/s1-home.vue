@@ -13,6 +13,13 @@
       :class="{'show-sky': showSky, 'home-top': homeTop, 'is-call': downcomponent}"
       :style="{opacity: homeScroll}"
     >
+      <div class="bird-container bird-container--one">
+        <div class="bird bird--one"></div>
+      </div>
+      <div class="bird-container bird-container--two">
+        <div class="bird bird--two"></div>
+      </div>
+
       <svg
         xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -4089,19 +4096,15 @@
         </g>
       </svg>
     </div>
-    <div class="triangle-wrap" :class="{'show-triangle': showTriangle}">
-      <div class="triangle">
-        <div class="wrap-img" v-for="image in images" :key="image.index+'-key'" :class="{'smooth-show': image.status}">
-          <img
-            class="img-category"
-            :class="'img-'+image.index"
-            :src="'/static/triangles/'+image.index+'.jpg'"
-            alt="service"
-            width="600"
-            height="600"
-          >
-          <span class="title-triangle">{{image.name}}</span>
-        </div>
+    <div class="parts-wrap" :class="{'show-part': showPart}">
+      <div class="parts-wrap__unit-part" v-for="image in images" :key="image.index+'-key'" :class="{'smooth-show': image.status}">
+        <img
+          class="parts-wrap__img"
+          :class="'img-'+image.index"
+          :src="'/static/parts/'+image.index+'.svg'"
+          alt="service"
+        >
+        <span class="parts-wrap__title">{{image.name}}</span>
       </div>
     </div>
   </div>
@@ -4129,7 +4132,7 @@ export default {
           status: false
         },
         {
-          index: 'cafe',
+          index: 'caffee-restorant',
           name: 'Кафе-ресторан',
           status: false
         }],
@@ -4140,7 +4143,7 @@ export default {
       homeTop: false,
       showLetter: false,
       showWall: true,
-      showTriangle: false,
+      showPart: false,
       position: 0,
       titleScroll: '1',
       homeScroll: '1',
@@ -4158,7 +4161,7 @@ export default {
         this.images[e].status = true
       }
       // eslint-disable-next-line
-      this.showTriangle = this.showTriangle ? false : true
+      this.showPart = this.showPart ? false : true
     },
     mouseBt () {
       return true
@@ -4233,22 +4236,22 @@ export default {
     // hover effect for home element
     this.$nextTick(() => {
       let numbers = document.querySelectorAll('.numbers')
-      let triangle = document.querySelector('.triangle')
+      let parts = document.querySelector('.parts-wrap')
       // transformation object in array
       numbers = Object.keys(numbers).map(key => numbers[key])
 
       // change state triange
       numbers.map(function (x) {
         x.onmouseover = function () {
-          if (triangle) {
+          if (parts) {
             // eslint-disable-next-line
-            return triangle.classList.add = '.showTriangle'
+            return parts.classList.add = '.showPart'
           }
         }
         x.onmouseout = function () {
-          if (triangle) {
+          if (parts) {
             // eslint-disable-next-line
-            return triangle.classList.remove = '.showTriangle'
+            return parts.classList.remove = '.showPart'
           }
         }
       })
@@ -4513,57 +4516,52 @@ export default {
   display: block
   visibility: visible
 
-.triangle
-  width: 100%
-  height: 100%
-  transform: rotate(-45deg)
-  background: #FF8E2A
-  transition: all 1s ease
-  opacity: 0
-  overflow: hidden
-  box-shadow: 0 0 10px rgba(0,0,0,.6)
-  &-wrap
-    position: fixed
-    width: 600px
-    height: 600px
-    right: -757px
-    top: -300px
-    z-index: 10000
-    transition: all .6s ease
-    .img-category
-      width: 600px
-      height: 600px
-      transform: rotate(45deg)
-      position: absolute
-      right: 290px
-      top: 0
-      &.img-sauna
-        right: 300px
-        top: -120px
-
-.show-triangle
-  right: -307px
-  transition: all .6s ease
-  .triangle
-    opacity: .9
-    transition: all 1s ease
-
-.title-triangle
-  color: #675f51
-  position: absolute
-  font: bold 18px 'Futura', Arial, sans-serif
-  letter-spacing: 2px
-  text-transform: uppercase
-  top: 50%
-  right: 41%
-  z-index: 1
-  transform: rotate(90deg)
+.parts-wrap
+  position: fixed
+  height: 200px
+  right: 5vw
+  top: 15%
   display: flex
   align-items: center
   justify-content: center
-  width: 100%
-  height: 40px
-  background-color: rgba(255,255,255,0.9)
+  flex-direction: column
+  z-index: 10000
+  transition: all .6s ease
+  pointer-events: none
+  opacity: 0
+  &__unit-part
+    position: absolute
+    top: 0
+    right: 0
+    opacity: 0
+    transition: all .5s ease
+    &.smooth-show
+      opacity: 1
+      transition: all .5s ease
+  &__img
+    width: 120px
+    height: 120px
+  &__title
+    transition: all 1s ease
+    color: #675f51
+    font: bold 12px 'Futura', Arial, sans-serif
+    letter-spacing: 2px
+    text-transform: uppercase
+    text-align: center
+    z-index: 1
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 100%
+    height: 40px
+
+.show-part
+  transition: all .6s ease
+  opacity: 1
+
+  .part
+    opacity: .9
+    transition: all 1s ease
 
 @media screen and (max-width: 1600px)
   .title-site
@@ -4600,11 +4598,68 @@ export default {
   transform: translate3d(0, 0, 0)
   filter: url(#f1)
 
-.wrap-img
-  opacity: 0
-  transition: all .5s ease
-  &.smooth-show
+.bird-container
+  position: absolute
+  z-index: 0
+  top: 5%
+  left: -7.5vw
+  will-change: transform
+  animation-name: fly-right-one
+  animation-timing-function: linear
+  animation-iteration-count: infinite
+  &.bird-container--one
+    animation-duration: 14s
+  &.bird-container--two
+    animation-duration: 15s
+    animation-delay: 2s
+
+.bird
+  background-image: url(../../../static/svg/bird-cells.svg)
+  background-size: auto 100%
+  background-repeat: no-repeat
+  width: 88px
+  height: 125px
+  transform: scale(0.5)
+  will-change: background-position
+  animation-name: fly-cycle
+  animation-timing-function: steps(10)
+  animation-iteration-count: infinite
+  &.bird--one
+    animation-duration: 1s
+    animation-delay: -0.5s
+  &.bird--two
+    animation-duration: 0.9s
+    animation-delay: -0.75s
+
+@keyframes fly-cycle
+  100%
+    background-position: -900px 0
+
+@keyframes fly-right-one
+  0%
+    left: -10vw
+    transform: scale(0.3)
+  10%
+    left: 10vw
+    transform: translateY(2vh) scale(0.4)
+  20%
+    left: 30vw
+    transform: translateY(0vh) scale(0.5)
+  30%
+    left: 50vw
+    transform: translateY(4vh) scale(0.6)
+  40%
+    left: 70vw
+    transform: translateY(2vh) scale(0.6)
+  50%
+    left: 90vw
+    transform: translateY(0vh) scale(0.6)
+  60%
+    left: 110vw
+    transform: translateY(0vh) scale(0.6)
+  100%
+    left: 110vw
     opacity: 1
-    transition: all .5s ease
+    transform: translateY(0vh) scale(0.6)
 
 </style>

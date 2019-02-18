@@ -1,6 +1,6 @@
 <template lang="pug">
   div
-    nav.menu.wrapper_blur(:class="{'is-call': downcomponent}")
+    nav.menu.wrapper_blur(:class="{'is-call': downcomponent}" ref="menu")
       ul
         li(v-for="(item,i) in itemsArray", :id="'item-'+(i+1)", :key="'item-'+(i+1)", @click="sendMessage", :class="{'show-item': showItem}")
 
@@ -99,11 +99,12 @@ body
   svg
     min-width: 40px
   a
-    font: 15px 'Futura', Arial, sans-serif
+    font: bold 15px 'Futura', Arial, sans-serif
     color: #6f5c56
     display: flex
     align-items: center
     text-decoration: none
+    letter-spacing: 1px
 
 .menu
   margin: 0 0 0 auto
@@ -295,8 +296,7 @@ body
 .call-back
   background: #ff6c26
   color: #fff
-  font: 16px 'Open Sans'
-  padding: 9px
+  padding: 10px
   position: relative
   transition: all .6s ease
   border-radius: 2px
@@ -305,24 +305,25 @@ body
   letter-spacing: .02em
   z-index: 2
   &:hover
-    transform: scale(1.1)
+    transform: scale(1.2)
     cursor: auto
     cursor: pointer
     transition: all .6s ease
     background: #ff952b
+    border-color: #ff952b
 
 .phone-wrap
   display: flex
   position: absolute
-  left: -198px
+  left: -205px
   top: 0
   align-items: center
-  padding: 9px 0 9px 10px
-  border: 2px solid #ff6c26
+  padding: 10px 0 9px 10px
+  border: 1px solid #ff6c26
   border-radius: 20px 0 0 20px
 
 .number-new
-  margin-right: 20px
+  margin-right: 12px
   order: 1
 
 </style>

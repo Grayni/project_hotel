@@ -5,6 +5,8 @@
       div.wrapper_blur(is="el3Logo", :msg="messagefromlogo", :position="scrollStatus", :class="{'is-call': blurStatus}")
       div.menu-wrap(is="el2Menu", @menumessage="messageOutMenu($event)", @menublur="blurOutMenu($event)", :downcomponent="blurStatus")
 
+    div.br(is="progressBar" id="progressBar")
+
     div(is="transition", name="fade", mode="out-in")
       div(is="router-view", @scrollValue="getScroll($event)", :downcomponent="blurStatus")
     div(is="backCall", @crosschange="getCross($event)", :downcomponent="blurStatus")
@@ -17,7 +19,8 @@ export default {
     el2Menu: () => import('./components/elements/el2-menu.vue'),
     el3Logo: () => import('./components/elements/el3-logo.vue'),
     headerBlock: () => import('./components/elements/headerBlock.vue'),
-    backCall: () => import('./components/elements/back-call.vue')
+    backCall: () => import('./components/elements/back-call.vue'),
+    progressBar: () => import('./components/apps/progress-bar.vue')
   },
   metaInfo: {
     // if no subcomponents specify a metaInfo.title, this title will be used
@@ -75,12 +78,16 @@ export default {
   body
     position: relative
     min-height: 800px
-    background: transparent
+    background: #fff
     overflow-x: hidden
   .menu-wrap
     width: 100vw
   ul
     padding: 0
+
+  div, svg
+    &:active, &:focus,
+      outline: none
 
   .fade-enter-active, .fade-leave-active
     transition: opacity .2s

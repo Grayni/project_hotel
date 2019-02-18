@@ -3,10 +3,10 @@
     swiper.plugin-slider(:options="swiperOption" ref="mySwiper")
       swiper-slide.block( v-for="img in images" :key="'slide-'+img" :data="'slide-'+img")
         .wrap-slide
-          img(:src="'/static/slider/slide-'+img+'.jpg'", alt="alt", @click="sendImg(img)")
-      .swiper-pagination(slot="pagination")
-      .swiper-button-prev(slot="button-prev" @click="swiper.slidePrev()")
-      .swiper-button-next(slot="button-next" @click="swiper.slideNext()")
+          img(:src="'/static/slider/slide-'+img+'.jpg'", alt="alt")
+      //- .swiper-pagination(slot="pagination")
+    .swiper-button-prev(slot="button-prev" @click="swiper.slidePrev()")
+    .swiper-button-next(slot="button-next" @click="swiper.slideNext()")
 </template>
 
 <script>
@@ -25,9 +25,12 @@ export default {
     return {
       images: [1, 2, 3, 4, 5, 6],
       swiperOption: {
+        initialSlide: 1,
+        speed: 1500,
+        loop: true,
+        loopedSlides: 6,
         slidesPerView: 3,
         spaceBetween: 4,
-        waitForTransition: true,
         autoplay: {
           delay: 4000,
           disableOnInteraction: true
@@ -54,6 +57,13 @@ export default {
     }
   },
   mounted () {
+    let vm = this
+    this.swiper.on('click', () => {
+      if (this.swiper.clickedSlide) {
+        const e = +this.swiper.clickedSlide.getAttribute('data-swiper-slide-index') + 1
+        vm.$emit('sendSlide', e)
+      }
+    })
     this.swiper.autoplay.start()
   }
 }
@@ -61,18 +71,20 @@ export default {
 
 <style lang="sass">
 .plugin-slider
-  padding: 4vh 0 14vh 0
-  margin-bottom: 10vh
   width: 80vw
   max-width: 1500px
-
+  margin: 60px 0 0 0
+  overflow-y: visible!important
+  overflow-x: hidden!important
+  min-height: 400px
+  display: inline-block
 .block
   .wrap-slide
     display: flex
     width: 100%
     max-height: 300px
-    background: #ff8040
     overflow: hidden
+    border: 1px solid #fedfc0
     img
       max-width: 40vw
       width: 100%
@@ -108,28 +120,76 @@ svg
       top: 6vh
       path
         fill: #fff
-.swiper-button
-  &-prev, &-next
-    top: calc(50% - 20px - 3vh)
+
+.swiper-wrapper
+  min-height: 420px
 
 .swiper-button
+  &-prev, &-next
+    top: calc(50% + 3.4vw)
+
   &-next
-    background-color: rgba(255,255,255,.3)
     transition: background-color .4s ease
-    width: 60px
-    height: 60px
-    border-radius: 50px
-    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23FF6C26'%2F%3E%3C%2Fsvg%3E")
+    background-size: 20px 20px
+    z-index: 30
+    right: -14px
+    left: auto
+    &:before
+      content: ''
+      outline: none
+      display: flexr
+      width: 40px
+      height: 40px
+      border-radius: 100%
+      background: rgb(111, 92, 86)
+      background-position: 7px 7px
+      background-size: 26px 25px
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23fedfc0'%2F%3E%3C%2Fsvg%3E")
+      background-repeat: no-repeat
+      animation: zoom-navigation 1s infinite linear alternate
+      position: absolute
+      top: 50%
+      left: 50%
+      margin-top: -20px
+      margin-left: -20px
+      z-index: -1
+    &:after
+      content: ''
+      outline: none
+      display: block
+      width: 60px
+      height: 60px
+      border-radius: 100%
+      border: 1px solid rgb(111, 92, 86)
+      animation: zoom-navigation 1s infinite linear alternate
+      position: absolute
+      top: 50%
+      margin-top: -31px
+      left: 50%
+      margin-left: -31px
+
     &:hover
-      background-color: rgba(255,255,255,.8)
-      transition: background-color .4s ease
+      &:before
+        // transition: background-color .4s ease
+        background-color: rgba(111, 92, 86,.7)
+      &:after
+        border-color: rgba(111, 92, 86,.7)
   &-prev
     @extend .swiper-button-next
-    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23FF6C26'%2F%3E%3C%2Fsvg%3E")
+    left: -14px
+    &:before
+      @extend .swiper-button-next:before
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23fedfc0'%2F%3E%3C%2Fsvg%3E")
+
     &:hover
       @extend .swiper-button-next:hover
 
 .swiper-pagination-bullet
   background-color: #FF6C26
 
+@keyframes zoom-navigation
+  0%
+    transform: scale(1)
+  100%
+    transform: scale(1.1)
 </style>

@@ -1,5 +1,3 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 /* eslint-disable */
 import Vue from 'vue'
 
@@ -10,15 +8,19 @@ import router from './router'
 // components, plugins
 import IndexTemplate from './IndexTemplate'
 
-import sal from 'sal.js'
-Object.defineProperty(Vue.prototype, '$sal', { value: sal })
+// import sal from 'sal.js'
+// Object.defineProperty(Vue.prototype, '$sal', { value: sal })
 
+// gsap
+import { TweenMax, TimelineMax, Bounce, Back } from 'gsap'
+import ScrollMagic from 'scrollmagic'
+import 'ScrollMagicGSAP'
+import 'debug.addIndicators'
 
-// directives
+import focus from './components/directives/focus'
 
-Vue.directive('focus', {
-  inserted: (e) => e.focus()
-})
+// Vue.directive('scroll-act', scrollAct)
+Vue.directive('focus', focus)
 
 Vue.config.productionTip = false
 

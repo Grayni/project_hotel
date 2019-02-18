@@ -1,21 +1,30 @@
 <template lang="pug">
-  <!-- eslint-disable -->
-  .about
-    div This page from About
-    img(src="/static/test-img/about.jpg", alt="about")
-
+  div()
 </template>
 
 <script>
 export default {
-  name: 'About',
+  name: "About",
   metaInfo: {
-    title: 'О нас'
+    title: "О нас"
+  },
+  data() {
+    return {
+      counter: 0
+    };
+  },
+  methods: {
+    hoverOn: function(event) {
+      event.target.style;
+      () => {
+        
+      }
+    }
   }
-}
+};
 </script>
 
-<style lang="sass" scoped>
+<style lang="stylus" scoped>
   img
-    width: 100%
+    width 100%
 </style>
