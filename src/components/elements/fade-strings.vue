@@ -9,7 +9,6 @@
 <script>
 import ScrollMagic from 'scrollmagic'
 import 'ScrollMagicGSAP'
-import 'debug.addIndicators'
 import {TweenMax, TimelineMax} from 'gsap'
 
 export default {

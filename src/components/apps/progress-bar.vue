@@ -9,7 +9,6 @@
 <script>
 import ScrollMagic from 'scrollmagic'
 import 'ScrollMagicGSAP'
-import 'debug.addIndicators'
 import {TimelineMax} from 'gsap'
 
 export default {
@@ -36,7 +35,6 @@ export default {
       const scene = new ScrollMagic.Scene({
         triggerElement: this.$refs.menu
       }).setTween(tween)
-        .addIndicators()
         .addTo(controller)
 
       scene.offset(300)

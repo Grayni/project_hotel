@@ -37,15 +37,15 @@ export default {
       [...this.logoElements].map(item => item.classList.remove('active'))
     },
     posLogo () {
-      if (this.position > 0) {
-        this.cornerZiro = true
-        this.widthLogo = '60px'
-        this.heightLogo = '60px'
-        return this.cornerZiro
-      } else {
+      if (this.position === 0 && this.$route.path === '/') {
         this.cornerZiro = false
         this.widthLogo = '120px'
         this.heightLogo = '120px'
+        return this.cornerZiro
+      } else {
+        this.cornerZiro = true
+        this.widthLogo = '60px'
+        this.heightLogo = '60px'
         return this.cornerZiro
       }
     }
@@ -53,6 +53,7 @@ export default {
   updated () {
     this.logoHidden()
     setTimeout(this.logoPresent, 200)
+    this.$nextTick(() => this.posLogo())
   },
   mounted () {
     this.$nextTick(() => this.posLogo())

@@ -36,13 +36,12 @@
 
 <script>
 
-import Shadow from '../apps/drop-shadow.vue'
-import Slider from '../elements/slider.vue'
-import FadeString from '../elements/fade-strings.vue'
+import Shadow from '../../apps/drop-shadow.vue'
+import Slider from '../../elements/slider.vue'
+import FadeString from '../../elements/fade-strings.vue'
 
 import ScrollMagic from 'scrollmagic'
 import 'ScrollMagicGSAP'
-import 'debug.addIndicators'
 
 /* eslint-disable */ 
 import {TimelineMax, CSSPlugin} from 'gsap'
@@ -105,7 +104,7 @@ export default {
     }).on('start', (e) => 
       (e.scrollDirection === "FORWARD") ? tweenKute.start() :
       (e.scrollDirection === "REVERSE") ? tweenKute2.start() : false
-    )
+    ).addTo(controller)
 
   // parallax section
     const scene2 = new ScrollMagic.Scene({
@@ -158,6 +157,7 @@ export default {
     position: relative
     margin: 0
     top: $shift
+    width: 100vw
 
     svg
       &.arc

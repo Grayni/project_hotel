@@ -4110,7 +4110,7 @@
   </div>
 </template>
 <script>
-import Gauss from '../apps/gauss.vue'
+import Gauss from '../../apps/gauss.vue'
 
 export default {
   name: 's1-home',
@@ -4167,7 +4167,7 @@ export default {
       return true
     },
     setTranslate (yPos, elem) {
-      if (elem === 'undefined') {
+      if (elem === 'empty') {
         return false
       } else {
         elem.style.transform = 'translate3d(0, ' + yPos + 'px, 0)'
@@ -4175,8 +4175,8 @@ export default {
       }
     },
     readAndUpdatePage () {
-      var home = this.$refs.home
-      var scrollPos = window.scrollY
+      const home = this.$refs.home || 'empty'
+      const scrollPos = window.scrollY
 
       this.setTranslate(scrollPos * -0.3, home)
       this.rememberAnimation = false
@@ -4614,7 +4614,7 @@ export default {
     animation-delay: 2s
 
 .bird
-  background-image: url(../../../static/svg/bird-cells.svg)
+  background-image: url(/static/svg/bird-cells.svg)
   background-size: auto 100%
   background-repeat: no-repeat
   width: 88px
