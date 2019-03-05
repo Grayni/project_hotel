@@ -1,19 +1,26 @@
 <template lang="pug">
-  div Страница Кафе-Ресторан<br>и меню с ценами
+  <model class="wrapper_blur" :class="{'is-call': downcomponent}" :titleText="'Кафе-Ресторан.Цены'" #default>
+    h1 Caffee
+  </model>
 </template>
 
 <script>
+import Model from '../../slots/model'
+
 export default {
-
   name: 'Caffee',
-
+  metaInfo: {
+    title: 'Кафе-ресторан'
+  },
+  props: ['downcomponent'],
+  components: {
+    Model
+  },
   data () {
-    return {
-
-    }
+    return {}
   }
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="stylus" scoped>
 </style>

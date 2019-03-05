@@ -64,13 +64,16 @@ export default {
     display: flex
     align-items: center
     justify-content: center
-    transition: all 2s ease
+    transition: background 2s ease
+    pointer-events: none
     &.show-box
+      pointer-events: auto
       background: rgba(255,255,255,0.3)
-      transition: all 2s ease
+      transition: background 2s ease
     &.smooth-hide
       background: rgba(0,0,0,0)
-      transition: all 1s ease
+      transition: background 1s ease
+      pointer-events: none
     .box-form
       background: rgba(0,0,0,0.4)
       width: 400px

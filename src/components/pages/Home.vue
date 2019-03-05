@@ -1,11 +1,11 @@
 <template lang="pug">
   .home
-    div(is="S1Home", @scrollValue="getScroll($event)", :downcomponent="downcomponent")
-    div(is="S2Quality", :downcomponent="downcomponent" @sendSlide='getSlide($event)')
-    div(is="S3Landscape")
-    div(is="S4Conclusion")
-    div(is="FooterWrap", :trigger="'.offer__unit-part:nth-child(4)'")
-    div(is="Lightbox", :slidereturn="numberSlide" @sendCross="getSlide($event)")
+    s1-home(@scrollValue="getScroll($event)", :downcomponent="downcomponent")
+    s2-quality(:downcomponent="downcomponent", @sendSlide='getSlide($event)')
+    s3-landscape(:downcomponent="downcomponent")
+    S4-conclusion(:downcomponent="downcomponent")
+    footer-wrap(:trigger="'.offer__unit-part:nth-child(4)'", :downcomponent="downcomponent")
+    light-box(:slidereturn="numberSlide", @sendCross="getSlide($event)", :downcomponent="downcomponent")
 </template>
 
 <script>
@@ -14,7 +14,7 @@ import S2Quality from '../sections/home/s2-quality.vue'
 import S3Landscape from '../sections/home/s3-landscape.vue'
 import S4Conclusion from '../sections/home/s4-conclusion.vue'
 import FooterWrap from '../elements/footer-wrap.vue'
-import Lightbox from '../elements/lightbox.vue'
+import LightBox from '../elements/lightbox.vue'
 
 export default {
   name: 'Home',
@@ -28,7 +28,7 @@ export default {
     S3Landscape,
     S4Conclusion,
     FooterWrap,
-    Lightbox
+    LightBox
   },
   data () {
     return {

@@ -17,6 +17,15 @@ import ScrollMagic from 'scrollmagic'
 import 'ScrollMagicGSAP'
 import 'debug.addIndicators'
 
+// yandex map
+
+
+const options = { // you may define your apiKey, lang and version or skip this.
+  apiKey: '447e33e3-ae1b-4b9f-af57-ab467ccda698', // '' by default
+  lang: 'ru_RU', // 'ru_RU' by default
+  version: '2.1' // '2.1' by default
+}
+
 import focus from './components/directives/focus'
 
 // Vue.directive('scroll-act', scrollAct)

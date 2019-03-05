@@ -8,7 +8,7 @@
     div.br(is="progressBar" id="progressBar")
 
     div(is="transition", name="fade", mode="out-in")
-      div(is="router-view", @scrollValue="getScroll($event)", :downcomponent="blurStatus")
+      div(is="router-view", @scrollValue="getScroll($event)", :downcomponent="blurStatus", @menublur="blurOutMenu($event)")
     div(is="backCall", @crosschange="getCross($event)", :downcomponent="blurStatus")
 </template>
 
@@ -77,7 +77,6 @@ export default {
 
   body
     position: relative
-    min-height: 800px
     background: #fff
     overflow-x: hidden
   .menu-wrap

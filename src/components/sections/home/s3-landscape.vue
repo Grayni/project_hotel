@@ -1,5 +1,5 @@
 <template lang="pug">
-  #show-offers
+  #show-offers.wrapper_blur(:class="{'is-call': downcomponent}")
     .about-offers(is="fade-string", :title="'Приятные бонусы'", :strings="strings", :target="'#show-offers'", :parent="'#show-offers'")
     .wrap-land(is="section")
       .left-land(id="parallax2")
@@ -32,6 +32,7 @@ import {TweenMax, Power0, TimelineMax} from 'gsap'
 
 export default {
   name: 's3-landscape',
+  props: ['downcomponent'],
   data () {
     return {
       strings: [
@@ -45,7 +46,7 @@ export default {
           index: 'rooms',
           name: 'Гостиничные номера',
           text: [
-            'Стоимость от: 1400 руб/ночь',
+            'Стоимость от: 1350 руб/ночь',
             'Бесплатный завтрак'
           ]
         },

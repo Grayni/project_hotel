@@ -1,7 +1,5 @@
 <template lang="pug">
-  div
-    div(is="title-page", :title-text="'О базе отдыха Уржум'")
-    .text-about
+  div.text-about
       .wrap-text
         p.
           Когда насыщенный рабочий день, полный напряжения и суеты, подходит к
@@ -13,11 +11,7 @@
 </template>
 
 <script>
-import TitlePage from '../../elements/title-page'
 export default {
-  components: {
-    TitlePage
-  },
   data () {
     return {
       title: 'I am a dynamic slot title1'

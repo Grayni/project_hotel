@@ -26,7 +26,8 @@
     "vue-cli": "^2.9.6",
     "vue-meta": "^1.5.2",
     "vue-parallaxy": "^1.1.1",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vue-yandex-maps": "^0.8.3"
   },
   "devDependencies": {
     "@prerenderer/renderer-puppeteer": "^0.1.4",

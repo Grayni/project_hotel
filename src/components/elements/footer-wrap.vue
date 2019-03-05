@@ -1,6 +1,6 @@
 <template lang="pug">
   div
-    footer
+    footer(:class="{'foot-opacity': activePage}")
       .foot
         a.link-site(href="https://urzhum.com") urzhum.com
         p.autor © Grayni {{ new Date().getFullYear() }} г.
@@ -14,12 +14,10 @@ import {TweenMax, Back} from 'gsap'
 export default {
   name: 'footer-wrap',
   props: ['trigger'],
-  data () {
-    return {
+  computed: {
+    activePage: function () {
+      return (this.$route.fullPath === '/about') ? 1 : 0
     }
-  },
-  methods: {
-
   },
   mounted () {
     const controller = new ScrollMagic.Controller()
@@ -41,13 +39,17 @@ export default {
     padding 4vw
     width 100vw
     min-height 50px
+    position relative
+    bottom 0
 
   .foot
     width: 100%
     display flex
     justify-content space-between
     align-items center
+    align-items center
     position relative
+    bottom 0
 
   .link-site, .autor
     font 16px Futura
@@ -59,4 +61,10 @@ export default {
     &:hover
       color #927971
       transition color 0.5s ease
+
+  .foot-opacity
+    position absolute
+    background: -moz-linear-gradient(top,  rgba(241,238,233,0) 0%, rgba(241,238,233,1) 82%, rgba(241,238,233,1) 100%)
+    background: -webkit-linear-gradient(top,  rgba(241,238,233,0) 0%,rgba(241,238,233,1) 82%,rgba(241,238,233,1) 100%)
+    background: linear-gradient(to bottom,  rgba(241,238,233,0) 0%,rgba(241,238,233,1) 82%,rgba(241,238,233,1) 100%)
 </style>

@@ -1,5 +1,5 @@
 <template lang="pug">
-  .conclusion
+  .conclusion.wrapper_blur(:class="{'is-call': downcomponent}")
     .wrap-text-block(id="closure")
       svg.wrap-text-block__frame
         rect(x="0" y="0" width="100%" height="100%" fill="none" stroke="#6f5c56" style="stroke-width: 4;")
@@ -19,6 +19,7 @@ import {TimelineMax, Back} from 'gsap'
 
 export default {
   name: 's4-conclusion',
+  props: ['downcomponent'],
   data () {
     return {
       timeLine1: null

@@ -1,8 +1,7 @@
 <template lang="pug">
   div.start
-    slot(name="titles")
-      h1
-        span.letter(v-for="letter in incapsulSpan()") {{ letter }}
+    h1
+      span.letter(v-for="letter in incapsulSpan()") {{ letter }}
 </template>
 
 <script>

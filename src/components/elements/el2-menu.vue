@@ -12,7 +12,7 @@
               router-link(:to="subitem[1]") {{subitem[0]}}
     div.phone-head.wrapper_blur(id="'item-0'", :key="'item-0'", :class="{'show-item': showItem, 'is-call': downcomponent}")
       .reverse-phone
-        .call-back(is="button-call", @menublur="blurOutButton($event)",)
+        button-call.call-back.button-call(name="button-call", @menublur="blurOutButton($event)",)
         .phone-wrap
           svg.icon-phone(version="1.1", baseProfile="basic", id="Слой_1", xmlns:x="&ns_extend;", xmlns:i="&ns_ai;", xmlns:graph="&ns_graphs;", xmlns="http://www.w3.org/2000/svg", xmlns:xlink="http://www.w3.org/1999/xlink", x="0px", y="0px", width="16px" height="20px", viewBox="0 0 156.9089 149.5588", fill="#6f5c56", xml:space="preserve")
             switch
@@ -292,25 +292,6 @@ body
   width: 170px
   position: relative
   top: -10px
-
-.call-back
-  background: #ff6c26
-  color: #fff
-  padding: 10px
-  position: relative
-  transition: all .6s ease
-  border-radius: 2px
-  order: 1
-  border: 2px solid #ff6c26
-  letter-spacing: .02em
-  z-index: 2
-  &:hover
-    transform: scale(1.2)
-    cursor: auto
-    cursor: pointer
-    transition: all .6s ease
-    background: #ff952b
-    border-color: #ff952b
 
 .phone-wrap
   display: flex
