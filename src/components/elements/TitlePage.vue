@@ -6,6 +6,7 @@
 
 <script>
 import {TimelineMax, Power0} from 'gsap'
+
 export default {
   name: 'title-page',
   props: ['titleText'],

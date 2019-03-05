@@ -5,9 +5,7 @@
 
 <script>
 export default {
-
-  name: 'headerBlock',
-
+  name: 'header-block',
   data () {
     return {}
   }

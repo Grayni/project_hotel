@@ -8,22 +8,20 @@
 </template>
 
 <script>
-import S1TextAbout from '../sections/about/s1-text-about.vue'
-import S2Complex from '../sections/about/s2-complex.vue'
-import S3AboutEnd from '../sections/about/s3-about-end.vue'
-import Model from '../slots/model'
+import Model from '@/components/slots/Model'
+
+import S1TextAbout from '@/components/sections/about/S1TextAbout'
+import S2Complex from '@/components/sections/about/S2Complex'
+import S3AboutEnd from '@/components/sections/about/S3AboutEnd'
 
 export default {
-  name: 'About',
+  name: 'about',
   metaInfo: {
     title: 'О нас'
   },
   props: ['downcomponent'],
   components: {
-    S1TextAbout,
-    S2Complex,
-    S3AboutEnd,
-    Model
+    S1TextAbout, S2Complex, S3AboutEnd, Model
   },
   data () {
     return {}

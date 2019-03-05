@@ -10,16 +10,17 @@
 </template>
 
 <script>
+import DropShadow from '@/components/apps/DropShadow'
+
 import 'swiper/dist/css/swiper.css'
-import Shadow from '../apps/drop-shadow.vue'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 
 export default {
-  name: 'Slider',
+  name: 'slider',
   components: {
     swiper,
     swiperSlide,
-    Shadow
+    DropShadow
   },
   data () {
     return {

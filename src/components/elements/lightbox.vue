@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: 'Lightbox',
+  name: 'lightbox',
   props: ['slidereturn'],
   data () {
     return {

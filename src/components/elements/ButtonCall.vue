@@ -6,8 +6,7 @@
 
 <script>
 export default {
-
-  name: 'el1-buttonCall',
+  name: 'button-call',
   data () {
     return {
       positive: true

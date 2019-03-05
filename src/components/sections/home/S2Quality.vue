@@ -36,9 +36,9 @@
 
 <script>
 
-import Shadow from '../../apps/drop-shadow.vue'
-import Slider from '../../elements/slider.vue'
-import FadeString from '../../elements/fade-strings.vue'
+import Shadow from '@/components/apps/DropShadow.vue'
+import Slider from '@/components/elements/Slider.vue'
+import FadeString from '@/components/elements/FadeString.vue'
 
 import ScrollMagic from 'scrollmagic'
 import 'ScrollMagicGSAP'

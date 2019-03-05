@@ -7,21 +7,19 @@
 </template>
 
 <script>
-import Model from '../slots/model'
+import Model from '@/components/slots/Model'
 
-import S1ContactsOffers from '../sections/contacts/s1-contacts-offers'
-import S2MapInfo from '../sections/contacts/s2-map-info'
+import S1ContactsOffers from '@/components/sections/contacts/S1ContactsOffers'
+import S2MapInfo from '@/components/sections/contacts/S2MapInfo'
 
 export default {
-  name: 'Contacts',
+  name: 'contacts',
   metaInfo: {
     title: 'Контакты'
   },
   props: ['downcomponent'],
   components: {
-    S1ContactsOffers,
-    S2MapInfo,
-    Model
+    S1ContactsOffers, S2MapInfo, Model
   }
 }
 </script>

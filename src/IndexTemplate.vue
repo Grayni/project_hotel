@@ -1,26 +1,43 @@
 <template lang="pug">
 
   #IndexTemplate
-    header(is="headerBlock", id="headerBlock")
-      div.wrapper_blur(is="el3Logo", :msg="messagefromlogo", :position="scrollStatus", :class="{'is-call': blurStatus}")
-      div.menu-wrap(is="el2Menu", @menumessage="messageOutMenu($event)", @menublur="blurOutMenu($event)", :downcomponent="blurStatus")
+    header-block(id="headerBlock")
+      logo.wrapper_blur(
+        :msg="messagefromlogo",
+        :position="scrollStatus",
+        :class="{'is-call': blurStatus}"
+      )
+      main-menu.menu-wrap(
+        @menumessage="messageOutMenu($event)",
+        @menublur="blurOutMenu($event)",
+        :downcomponent="blurStatus"
+      )
 
-    div.br(is="progressBar" id="progressBar")
+    progress-bar.br(id="progressBar")
 
-    div(is="transition", name="fade", mode="out-in")
-      div(is="router-view", @scrollValue="getScroll($event)", :downcomponent="blurStatus", @menublur="blurOutMenu($event)")
-    div(is="backCall", @crosschange="getCross($event)", :downcomponent="blurStatus")
+    transition(name="fade", mode="out-in")
+      router-view(
+        @scrollValue="getScroll($event)",
+        :downcomponent="blurStatus",
+        @menublur="blurOutMenu($event)"
+      )
+    back-call(
+      @crosschange="getCross($event)",
+      :downcomponent="blurStatus"
+    )
 </template>
 
 <script>
+import MainMenu from './components/elements/MainMenu'
+import Logo from './components/elements/Logo'
+import HeaderBlock from './components/elements/HeaderBlock'
+import BackCall from './components/elements/BackCall'
+import ProgressBar from './components/apps/ProgressBar'
+
 export default {
   name: 'IndexTemplate',
   components: {
-    el2Menu: () => import('./components/elements/el2-menu.vue'),
-    el3Logo: () => import('./components/elements/el3-logo.vue'),
-    headerBlock: () => import('./components/elements/headerBlock.vue'),
-    backCall: () => import('./components/elements/back-call.vue'),
-    progressBar: () => import('./components/apps/progress-bar.vue')
+    MainMenu, Logo, HeaderBlock, BackCall, ProgressBar
   },
   metaInfo: {
     // if no subcomponents specify a metaInfo.title, this title will be used

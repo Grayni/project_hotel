@@ -5,9 +5,10 @@
 </template>
 
 <script>
-import Model from '../../slots/model'
+import Model from '@/components/slots/Model'
+
 export default {
-  name: 'Sauna',
+  name: 'sauna',
   metaInfo: {
     title: 'Сауна'
   },

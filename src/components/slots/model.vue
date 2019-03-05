@@ -6,15 +6,14 @@
 </template>
 
 <script>
-import TitlePage from '../elements/title-page'
-import FooterWrap from '../elements/footer-wrap'
+import TitlePage from '@/components/elements/TitlePage'
+import FooterWrap from '@/components/elements/FooterWrap'
 
 export default {
   name: 'model',
   props: ['title-text'],
   components: {
-    TitlePage,
-    FooterWrap
+    TitlePage, FooterWrap
   }
 }
 </script>

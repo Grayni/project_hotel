@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import Offer from '../../../slots/offer'
+import Offer from '@/components/slots/Offer'
 export default {
   name: 's2-offers',
   components: {

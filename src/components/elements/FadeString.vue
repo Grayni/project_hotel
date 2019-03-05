@@ -12,7 +12,7 @@ import 'ScrollMagicGSAP'
 import {TweenMax, TimelineMax} from 'gsap'
 
 export default {
-  name: 'fade-strings',
+  name: 'fade-string',
   props: ['title', 'strings', 'target', 'parent'],
   // strings => frases, target => (scroll start animation element),
   // parent => wrap-element contain this component (this IMPORTANT!)

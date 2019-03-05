@@ -4110,7 +4110,7 @@
   </div>
 </template>
 <script>
-import Gauss from '../../apps/gauss.vue'
+import Gauss from '@/components/apps/Gauss'
 
 export default {
   name: 's1-home',

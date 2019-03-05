@@ -1,46 +1,51 @@
 <template>
-  <div class="rooms-price">
-    <card
-      v-for="(room, index) in rooms"
-      :key="'room-'+index"
-      @menublur="blurOutButton($event)"
-      :id="room.id"
-      :price="room.price"
-      :icons="room.icons"
-    >
-      <template #img-start>
-        <img class="img" :src="'/static/test-img/'+room.img+'.jpg'">
-      </template>
-      <template #name-room>
-        <div>{{ room['name-room'] }}</div>
-      </template>
-      <template #bed-size>
-        <div>{{ room['bed-size'] }}</div>
-      </template>
-      <template #icon="{ icon }">
-        <img :src="'/static/icons-rooms/'+icon[0]+'.png'" :alt="icon[1]" :title="icon[1]" width="25" height="25">
-      </template>
-      <template #picking>
-        <div>{{ room.picking }}</div>
-      </template>
-      <template #price="{ tariff }">
-        <span> {{ tariff }} ₽/сут</span>
-      </template>
+  <div class="price-wrap">
+    <div class="rooms-price">
+      <card
+        v-for="(room, index) in rooms"
+        :key="'room-'+index"
+        @menublur="blurOutButton($event)"
+        :id="room.id"
+        :price="room.price"
+        :icons="room.icons"
+      >
+        <template #img-start>
+          <img class="img" :src="'/static/test-img/'+room.img+'.jpg'">
+        </template>
+        <template #name-room>
+          <div>{{ room['name-room'] }}</div>
+        </template>
+        <template #bed-size>
+          <div>{{ room['bed-size'] }}</div>
+        </template>
+        <template #icon="{ icon }">
+          <img :src="'/static/icons-rooms/'+icon[0]+'.png'" :alt="icon[1]" :title="icon[1]" width="25" height="25">
+        </template>
+        <template #picking>
+          <div>{{ room.picking }}</div>
+        </template>
+        <template #price="{ tariff }">
+          <span> {{ tariff }} ₽/сут</span>
+        </template>
 
-      <template #booking="props">
-        <button name="booking">Забронировать</button>
-      </template>
-    </card>
+        <template #booking="props">
+          <button name="booking">Забронировать</button>
+        </template>
+      </card>
+    </div>
   </div>
 </template>
 
 <script>
-import Card from '../../../slots/card'
+import Card from '@/components/slots/Card'
+import BlurOutButton from '@/components/mixins/BlurOutButton'
+
 export default {
   name: 's3-rooms-price',
   components: {
     Card
   },
+  mixins: [BlurOutButton],
   data () {
     return {
       blurFromHTML: false,
@@ -175,19 +180,16 @@ export default {
         }
       ]
     }
-  },
-  methods: {
-    blurOutButton (v) {
-      // get out children (button-call)
-      this.blurFromHTML = v
-      // send up to the parent and change value for contact form. good..
-      this.$emit('menublur', this.blurFromHTML)
-    }
   }
 }
 </script>
 
 <style lang='stylus'>
+  .price-wrap
+    margin 10vh 0
+    display flex
+    width 100vw
+    justify-content center
   .rooms-price
     display flex
     justify-content center

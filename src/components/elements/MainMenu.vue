@@ -24,12 +24,15 @@
 </template>
 
 <script>
+import ButtonCall from '@/components/elements/ButtonCall'
+import BlurOutButton from '@/components/mixins/BlurOutButton'
 
 export default {
-  name: 'el2-menu',
+  name: 'main-menu',
   components: {
-    buttonCall: () => import('@/components/elements/el1-buttonCall.vue')
+    ButtonCall
   },
+  mixins: [BlurOutButton],
   props: ['downcomponent'],
   data () {
     return {
@@ -55,12 +58,6 @@ export default {
   methods: {
     sendMessage () {
       this.$emit('menumessage', this.send = this.send + 1)
-    },
-    blurOutButton (v) {
-      // get out children (button-call)
-      this.blurFromHTML = v
-      // send up to the parent and change value for contact form. good..
-      this.$emit('menublur', this.blurFromHTML)
     }
   },
   mounted () {

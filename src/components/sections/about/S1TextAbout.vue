@@ -12,6 +12,7 @@
 
 <script>
 export default {
+  name: 's1-text-about',
   data () {
     return {
       title: 'I am a dynamic slot title1'

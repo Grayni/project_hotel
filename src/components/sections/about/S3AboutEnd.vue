@@ -1,13 +1,14 @@
 <template lang="pug">
   .end
     .top-block(id="target-top-cross")
-      div(is="fade-string", :title="'Отдохнуть и расслабиться'", :strings="strings", :target="'.map'", :parent="'#target-top-cross'")
+      fade-string(:title="'Отдохнуть и расслабиться'", :strings="strings", :target="'.map'", :parent="'#target-top-cross'")
     .wrap-landscape
       img.landscape(src="/static/about/background-down.jpg")
 </template>
 
 <script>
-import FadeString from '../../elements/fade-strings.vue'
+import FadeString from '@/components/elements/FadeString'
+
 export default {
   name: 's3-about-end',
   components: {

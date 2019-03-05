@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import FadeString from '../../elements/fade-strings.vue'
+import FadeString from '@/components/elements/FadeString.vue'
 
 import ScrollMagic from 'scrollmagic'
 import 'ScrollMagicGSAP'
