@@ -1,7 +1,9 @@
 <template lang="pug">
-  <model class="wrapper_blur" :class="{'is-call': downcomponent}" :titleText="'Сауна.Цены'" #default>
+  model(
+    :titleText="'Сауна.Цены'",
+    #default=""
+  )
     h1 Sauna
-  </model>
 </template>
 
 <script>
@@ -12,14 +14,7 @@ export default {
   metaInfo: {
     title: 'Сауна'
   },
-  props: ['downcomponent'],
-  components: {
-    Model
-  },
-  data () {
-    return {
-    }
-  }
+  components: { Model }
 }
 </script>
 

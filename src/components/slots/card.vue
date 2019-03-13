@@ -24,26 +24,19 @@
                 span(v-if="num === 1 && index+1 > 1 || num === 2 && index+1 > 2") +
             slot.price(name="price" :tariff="tariff")
     .block.booking
-      <button-call #button-call @menublur="blurOutButton($event)">
+      <button-call #button-call>
         .button-call Забронировать
       </button-call>
 </template>
 
 <script>
 import ButtonCall from '@/components/elements/ButtonCall'
-import BlurOutButton from '@/components/mixins/BlurOutButton'
 
 export default {
   name: 'card',
   props: ['price', 'icons', 'id'],
   components: {
     ButtonCall
-  },
-  mixins: [BlurOutButton],
-  data () {
-    return {
-      blurFromHTML: false
-    }
   }
 }
 </script>
@@ -92,6 +85,8 @@ export default {
       align-items center
   .img
     width 100%
+    &:hover
+      cursor pointer
   .name-room
     font-size 20px
   .booking

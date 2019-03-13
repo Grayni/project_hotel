@@ -1,18 +1,23 @@
 <!-- eslint-disable -->
 <template lang="pug">
 
-  .wrap-quality.wrapper_blur(:class="{'is-call': downcomponent}", is="section")
+  .wrap-quality.wrapper_blur(is="section")
 
     svg.arc(xmlns="http://www.w3.org/2000/svg", viewBox="0 -10 2201.46 249.45")
       defs
-        div(is="Shadow")
+        Shadow
       path.a(id="arc" d="M2201.46,249.45H0V20C740,318.16,1473.87,318.16,2201.46,10Z")
       path.rectangle(id="rectangle" d="M2201.46,249.45H0V0H2201.46Z")
 
     div(id='target-square')
 
       .top-block(id="target-top-block-text")
-        div(is="fade-string", :title="'Сервис комплекса'", :strings="strings", :target="'#target-square'", :parent="'#target-top-block-text'")
+        fade-string(
+          :title="'Сервис комплекса'",
+          :strings="strings",
+          :target="'#target-square'",
+          :parent="'#target-top-block-text'"
+        )
 
       .bottom-block
         .wrap-text-block
@@ -36,9 +41,9 @@
 
 <script>
 
-import Shadow from '@/components/apps/DropShadow.vue'
-import Slider from '@/components/elements/Slider.vue'
-import FadeString from '@/components/elements/FadeString.vue'
+import Shadow from '@/components/apps/DropShadow'
+import Slider from '@/components/elements/Slider'
+import FadeString from '@/components/elements/FadeString'
 
 import ScrollMagic from 'scrollmagic'
 import 'ScrollMagicGSAP'
@@ -50,7 +55,6 @@ import kuteSVG from 'kute.js/kute-svg'
 /* eslint-disable */ 
 export default {
   name: 's2-quality',
-  props: ['downcomponent'],
   components: {
     Shadow,
     Slider,
@@ -61,13 +65,9 @@ export default {
       slide: '',
       timeLine1: null,
       timeLine1_1: null,
-      timeLine2: null,
       timeLine3: null,
       timeLine4: null,
       timeLine5: null,
-      timeLine6: null,
-      timeLine7: null,
-      timeLine8: null,
       strings: [
         ['Мы', 'предлагаем:'],
         ['-Гостиничные', 'номера'],

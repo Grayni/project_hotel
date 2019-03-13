@@ -1,20 +1,17 @@
 <template lang="pug">
-  div(@click="sendBlur")
+  div(@click="callBackWindowOn")
     slot.button-call(name="button-call") Заказать звонок
 
 </template>
 
 <script>
+import { eventEmitter } from '@/main'
+
 export default {
   name: 'button-call',
-  data () {
-    return {
-      positive: true
-    }
-  },
   methods: {
-    sendBlur () {
-      this.$emit('menublur', this.positive)
+    callBackWindowOn () {
+      eventEmitter.$emit('openCallBack')
     }
   }
 }

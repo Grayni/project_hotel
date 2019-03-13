@@ -1,5 +1,5 @@
 <template lang="pug">
-  .model
+  .model.wrapper_blur
     title-page(:title-text="titleText")
     slot.cont content
     footer-wrap.footer

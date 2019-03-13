@@ -3,8 +3,7 @@
     swiper.plugin-slider(:options="swiperOption" ref="mySwiper")
       swiper-slide.block( v-for="img in images" :key="'slide-'+img" :data="'slide-'+img")
         .wrap-slide
-          img(:src="'/static/slider/slide-'+img+'.jpg'", alt="alt")
-      //- .swiper-pagination(slot="pagination")
+          img(:src="'/static/slider/slide-'+img+'.jpg'", :alt="'Слайд-'+img")
     .swiper-button-prev(slot="button-prev" @click="swiper.slidePrev()")
     .swiper-button-next(slot="button-next" @click="swiper.slideNext()")
 </template>
@@ -24,12 +23,12 @@ export default {
   },
   data () {
     return {
-      images: [1, 2, 3, 4, 5, 6],
+      images: 5,
       swiperOption: {
         initialSlide: 1,
         speed: 1500,
         loop: true,
-        loopedSlides: 6,
+        loopedSlides: 5,
         slidesPerView: 3,
         spaceBetween: 4,
         autoplay: {
@@ -47,11 +46,6 @@ export default {
       }
     }
   },
-  methods: {
-    sendImg (e) {
-      this.$emit('sendSlide', e)
-    }
-  },
   computed: {
     swiper () {
       return this.$refs.mySwiper.swiper
@@ -62,7 +56,7 @@ export default {
     this.swiper.on('click', () => {
       if (this.swiper.clickedSlide) {
         const e = +this.swiper.clickedSlide.getAttribute('data-swiper-slide-index') + 1
-        vm.$emit('sendSlide', e)
+        vm.$emit('sendSlide', [e, this.images])
       }
     })
     this.swiper.autoplay.start()
@@ -187,6 +181,9 @@ svg
 
 .swiper-pagination-bullet
   background-color: #FF6C26
+
+.swiper-button-prev, .swiper-button-next
+  background-image: none !important
 
 @keyframes zoom-navigation
   0%

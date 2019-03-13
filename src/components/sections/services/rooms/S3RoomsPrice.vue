@@ -1,58 +1,59 @@
-<template>
-  <div class="price-wrap">
-    <div class="rooms-price">
-      <card
-        v-for="(room, index) in rooms"
-        :key="'room-'+index"
-        @menublur="blurOutButton($event)"
-        :id="room.id"
-        :price="room.price"
+<template lang="pug">
+  .price-wrap
+    .rooms-price
+      card(
+        v-for="(room, index) in rooms",
+        :key="'room-'+index",
+        :id="room.id",
+        :price="room.price",
         :icons="room.icons"
-      >
-        <template #img-start>
-          <img class="img" :src="'/static/test-img/'+room.img+'.jpg'">
-        </template>
-        <template #name-room>
-          <div>{{ room['name-room'] }}</div>
-        </template>
-        <template #bed-size>
-          <div>{{ room['bed-size'] }}</div>
-        </template>
-        <template #icon="{ icon }">
-          <img :src="'/static/icons-rooms/'+icon[0]+'.png'" :alt="icon[1]" :title="icon[1]" width="25" height="25">
-        </template>
-        <template #picking>
-          <div>{{ room.picking }}</div>
-        </template>
-        <template #price="{ tariff }">
-          <span> {{ tariff }} ₽/сут</span>
-        </template>
+      )
 
-        <template #booking="props">
-          <button name="booking">Забронировать</button>
-        </template>
-      </card>
-    </div>
-  </div>
+        template(#img-start="")
+          img.img(
+            :src="'/static/test-img/'+room.img[0]+'.jpg'",
+            @click="showLightbox"
+          )
+
+        template(#name-room="")
+          div {{ room['name-room'] }}
+
+        template(#bed-size="")
+          div {{ room['bed-size'] }}
+
+        template(#icon="{ icon }")
+          img(
+            :src="'/static/icons-rooms/'+icon[0]+'.png'",
+            :alt="icon[1]", :title="icon[1]",
+            width="25",
+            height="25"
+          )
+
+        template(#picking="")
+          div {{ room.picking }}
+
+        template(#price="{ tariff }")
+          span {{ tariff }} ₽/сут
+
+        template(#booking="props")
+          button(name="booking") Забронировать
 </template>
 
 <script>
 import Card from '@/components/slots/Card'
-import BlurOutButton from '@/components/mixins/BlurOutButton'
-
+import Lightbox from '@/components/elements/Lightbox'
 export default {
   name: 's3-rooms-price',
   components: {
-    Card
+    Card, Lightbox
   },
-  mixins: [BlurOutButton],
   data () {
     return {
-      blurFromHTML: false,
+      lightboxStatus: false,
       rooms: [
         {
           id: 'econome-1',
-          img: 'about',
+          img: ['about', 'contacts', 'services'],
           'name-room': 'Эконом',
           'bed-size': '160*200см',
           picking: `
@@ -75,7 +76,7 @@ export default {
         },
         {
           id: 'econome-2',
-          img: 'about',
+          img: ['about', 'contacts', 'services'],
           'name-room': 'Эконом +',
           'bed-size': '160*200см',
           picking: `
@@ -100,7 +101,7 @@ export default {
         },
         {
           id: 'standart',
-          img: 'about',
+          img: ['about', 'contacts', 'services'],
           'name-room': 'Стандарт',
           'bed-size': '160*200см',
           picking: `
@@ -126,7 +127,7 @@ export default {
         },
         {
           id: 'family',
-          img: 'about',
+          img: ['about', 'contacts', 'services'],
           'name-room': 'Семейный',
           'bed-size': '160*200см x 1, 90*200см x 2',
           picking: `
@@ -152,7 +153,7 @@ export default {
         },
         {
           id: 'vip',
-          img: 'about',
+          img: ['about', 'contacts', 'services'],
           'name-room': 'VIP',
           'bed-size': '160x200 см',
           picking: `
@@ -179,6 +180,14 @@ export default {
           price: [ 4500, 4500 ]
         }
       ]
+    }
+  },
+  methods: {
+    showLightbox () {
+      this.$emit('listImgPrice', this.room.img)
+    },
+    getSlide (u) {
+      this.room = u
     }
   }
 }

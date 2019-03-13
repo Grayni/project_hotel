@@ -1,9 +1,8 @@
 <template lang="pug">
-  <model class="wrapper_blur" :class="{'is-call': downcomponent}" :titleText="'Наши контакты'" #default>
+  model(class="wrapper_blur", :titleText="'Наши контакты'", #default="")
     div.cont
       s1-contacts-offers
       s2-map-info
-  </model>
 </template>
 
 <script>
@@ -17,7 +16,6 @@ export default {
   metaInfo: {
     title: 'Контакты'
   },
-  props: ['downcomponent'],
   components: {
     S1ContactsOffers, S2MapInfo, Model
   }

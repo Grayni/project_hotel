@@ -25,8 +25,8 @@ export default new Router({
     { path: '/sauna', name: 'Sauna', component: Sauna },
     { path: '/caffee-restorant', name: 'Caffee', component: Caffee }
   ],
-  scrollBehavior (to, from, savedPosition) {
-    return { x: 0, y: 0 }
-  },
+  // scrollBehavior (to, from, savedPosition) {
+  //   return { x: 0, y: 0 }
+  // },
   mode: 'history'
 })

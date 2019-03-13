@@ -33,6 +33,8 @@ Vue.directive('focus', focus)
 
 Vue.config.productionTip = false
 
+export const eventEmitter = new Vue()
+
 var vm1 = new Vue({
   el: '#main-frame',
   router,

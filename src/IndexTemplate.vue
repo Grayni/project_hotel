@@ -1,30 +1,23 @@
 <template lang="pug">
 
-  #IndexTemplate
-    header-block(id="headerBlock")
-      logo.wrapper_blur(
-        :msg="messagefromlogo",
-        :position="scrollStatus",
-        :class="{'is-call': blurStatus}"
-      )
-      main-menu.menu-wrap(
-        @menumessage="messageOutMenu($event)",
-        @menublur="blurOutMenu($event)",
-        :downcomponent="blurStatus"
-      )
+  #IndexTemplate(:line-scroll="htmlScrollStatus()")
+    header-block(:class="{'is-call': blurStatus}", :position="scrollStatus")
+      logo(:position="scrollStatus")
+      main-menu.menu-wrap
 
     progress-bar.br(id="progressBar")
 
     transition(name="fade", mode="out-in")
       router-view(
         @scrollValue="getScroll($event)",
-        :downcomponent="blurStatus",
-        @menublur="blurOutMenu($event)"
+        :class="{'is-call': blurStatus}"
       )
-    back-call(
-      @crosschange="getCross($event)",
-      :downcomponent="blurStatus"
-    )
+    transition(name="show-call", key="show-call")
+      back-call(v-if="blurStatus")
+
+    transition(name="show-call", key="show-call")
+      lightbox(v-if="blurStatus", :slidereturn="numberSlide", #from-slider="{ slideNum }")
+        img.show-slide(:src="'/static/slider/slide-'+slideNum+'.jpg'", :alt="'Слайд-'+slideNum")
 </template>
 
 <script>
@@ -33,11 +26,15 @@ import Logo from './components/elements/Logo'
 import HeaderBlock from './components/elements/HeaderBlock'
 import BackCall from './components/elements/BackCall'
 import ProgressBar from './components/apps/ProgressBar'
+import Lightbox from '@/components/elements/Lightbox'
+
+import blurStatus from '@/components/mixins/blurStatus'
 
 export default {
   name: 'IndexTemplate',
+  mixins: [blurStatus],
   components: {
-    MainMenu, Logo, HeaderBlock, BackCall, ProgressBar
+    MainMenu, Logo, HeaderBlock, BackCall, ProgressBar, Lightbox
   },
   metaInfo: {
     // if no subcomponents specify a metaInfo.title, this title will be used
@@ -47,147 +44,79 @@ export default {
   },
   data () {
     return {
-      messagefromlogo: '',
       scrollStatus: 0,
-      blurStatus: false
+      counter: 0,
+      lineScrollDisplay: ''
     }
   },
   methods: {
-    messageOutMenu (v) {
-      this.messagefromlogo = v
-    },
     getScroll (v) {
       this.scrollStatus = v
     },
-    getCross (v) {
-      this.blurStatus = v
-      let htmlHideScroll = document.querySelector('html')
-      htmlHideScroll.classList.remove('blur-html')
-    },
-    blurOutMenu (v) {
-      this.blurStatus = v
-      let htmlHideScroll = document.querySelector('html')
-      htmlHideScroll.classList.add('blur-html')
+    htmlScrollStatus () {
+      this.lineScrollDisplay.style.overflow = (this.blurStatus) ? 'hidden' : 'visible'
     }
+  },
+  created () {
+    this.lineScrollDisplay = document.querySelector('html')
   }
+// ,
+// updated () {
+  // this.htmlScroll()
+// }
 }
 </script>
 
-<style lang="sass">
+<style lang="stylus">
   @import './styles/reset.css'
-  @import './styles/fonts'
-  @import '../node_modules/sal.js/dist/sal.css'
+  @import './styles/fonts.sass'
 
   html
     &::-webkit-scrollbar-track
-      border-radius: 4px
-      background: #fff
+      border-radius 4px
+      background #fff
     &::-webkit-scrollbar
-      width: 6px
+      width 6px
     &::-webkit-scrollbar-thumb
-      border-radius: 4px
-      background: #d5b666
+      border-radius 4px
+      background #d5b666
     &:hover::-webkit-scrollbar-thumb
-      background: #d5b666
+      background #d5b666
     &.blur-html
-      overflow: hidden
+      overflow hidden
 
   body
-    position: relative
-    background: #fff
-    overflow-x: hidden
+    position relative
+    background #f1eee9
+    overflow-x hidden
+    width 100vw
+    height 100%
+
   .menu-wrap
-    width: 100vw
-  ul
-    padding: 0
+    width 100vw
 
   div, svg
-    &:active, &:focus,
-      outline: none
+    &:active, &:focus
+      outline none
 
   .fade-enter-active, .fade-leave-active
-    transition: opacity .2s
+    transition opacity .2s
+    transition opacity .2s
 
   .fade-enter, .fade-leave-to
-    opacity: 0
+    opacity 0
+
+  .show-call-enter-active, .show-call-leave-active
+    transition all 1s ease
+
+  .show-call-enter, .show-call-leave-to
+    opacity 0
+    pointer-events none
 
   .wrapper_blur
-    -webkit-animation-timing-function: linear
-    -webkit-animation-name: blurback
-    -webkit-animation-duration: 1s
-    -webkit-fill-mode: backwards
-    animation-timing-function: linear
-    animation-name: blurback
-    animation-duration: 1s
-    animation-fill-mode: forwards
-    &.is-call
-      -webkit-animation-timing-function: linear
-      -webkit-animation-name: blur
-      -webkit-animation-duration: 3s
-      -webkit-fill-mode: forwards
-      animation-timing-function: linear
-      animation-name: blur
-      animation-duration: 3s
-      animation-fill-mode: forwards
-
-  @-webkit-keyframes blur
-    0%
-      -webkit-filter: blur(0px)
-    20%
-      -webkit-filter: blur(1px)
-    40%
-      -webkit-filter: blur(2px)
-    60%
-      -webkit-filter: blur(3px)
-    80%
-      -webkit-filter: blur(4px)
-    100%
-      -webkit-filter: blur(5px)
-
-  @keyframes blur
-    0%
-      -webkit-filter: blur(0px)
-    20%
-      -webkit-filter: blur(1px)
-    40%
-      -webkit-filter: blur(2px)
-    60%
-      -webkit-filter: blur(3px)
-    80%
-      -webkit-filter: blur(4px)
-    100%
-      -webkit-filter: blur(5px)
-
-  @-webkit-keyframes blurback
-    0%
-      -webkit-filter: blur(5px)
-    20%
-      -webkit-filter: blur(4px)
-    40%
-      -webkit-filter: blur(3px)
-    60%
-      -webkit-filter: blur(2px)
-    80%
-      -webkit-filter: blur(1px)
-    100%
-      -webkit-filter: blur(0px)
-
-  @keyframes blurback
-    0%
-      -webkit-filter: blur(5px)
-    20%
-      -webkit-filter: blur(4px)
-    40%
-      -webkit-filter: blur(3px)
-    60%
-      -webkit-filter: blur(2px)
-    80%
-      -webkit-filter: blur(1px)
-    100%
-      -webkit-filter: blur(0px)
-
-  @media screen and (min-width: 960px)
-    html
-      //margin-right: calc(100vw - 100%+5px)
-      //margin-left: 0
+    filter blur(0.1px)
+    transition filter .6s ease-in !important
+  .is-call
+    filter blur(5px)
+    transition filter .6s ease-in !important
 </style>

@@ -17,12 +17,17 @@ const env = process.env.NODE_ENV === 'testing'
   : require('../config/prod.env')
 
 const webpackConfig = merge(baseWebpackConfig, {
+  resolve: {
+    alias: {
+      "ScrollMagicGSAP": "scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap",
+      "debug.addIndicators": "scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js"
+    }
+  },
   module: {
-    rules: utils.styleLoaders({
-      sourceMap: config.build.productionSourceMap,
-      extract: true,
-      usePostCSS: true
-    })
+    rules: [
+      ...utils.styleLoaders({ sourceMap: config.build.productionSourceMap, extract: true, usePostCSS: true }),
+      { test: /\.js$/, loader: "imports-loader?define=>false" }
+    ]
   },
   devtool: config.build.productionSourceMap ? config.build.devtool : false,
   output: {

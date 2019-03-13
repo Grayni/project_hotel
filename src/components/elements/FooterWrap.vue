@@ -1,19 +1,23 @@
 <template lang="pug">
   div
-    footer(:class="{'foot-opacity': activePage}")
+    footer(:class="{'foot-opacity': activePage, 'is-call': blurStatus}")
       .foot
         a.link-site(href="https://urzhum.com") urzhum.com
         p.autor © Grayni {{ new Date().getFullYear() }} г.
 </template>
 
 <script>
+import blurStatus from '@/components/mixins/blurStatus'
+
 import ScrollMagic from 'scrollmagic'
 import 'ScrollMagicGSAP'
+
 import {TweenMax, Back} from 'gsap'
 
 export default {
   name: 'footer-wrap',
   props: ['trigger'],
+  mixins: [blurStatus],
   computed: {
     activePage: function () {
       return (this.$route.fullPath === '/about') ? 1 : 0

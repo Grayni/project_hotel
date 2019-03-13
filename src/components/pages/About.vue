@@ -1,10 +1,12 @@
 <template lang="pug">
-  <model class="wrapper_blur" :titleText="'О базе отдыха Уржум'" :class="{'is-call': downcomponent}" #default>
+  model(
+    :titleText="'О базе отдыха Уржум'",
+    #default=""
+  )
     div.cont
       s1-text-about
       s2-complex
       s3-about-end
-  </model>
 </template>
 
 <script>
@@ -19,14 +21,9 @@ export default {
   metaInfo: {
     title: 'О нас'
   },
-  props: ['downcomponent'],
   components: {
     S1TextAbout, S2Complex, S3AboutEnd, Model
-  },
-  data () {
-    return {}
-  },
-  methods: {}
+  }
 }
 </script>
 

@@ -1,5 +1,5 @@
 <template lang="pug">
-  div.start
+  .start
     h1
       span.letter(v-for="letter in incapsulSpan()") {{ letter }}
 </template>
@@ -43,6 +43,8 @@ export default {
 
 <style lang="stylus" scoped>
   .start
+    overflow hidden
+    width 100vw
     h1
       font italic 32px 'Futura', Arial, 'sans-serif'
       color #6f5c56

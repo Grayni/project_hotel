@@ -1,16 +1,25 @@
 <template lang="pug">
-  div
+  .header-block.wrapper_blur(:class="{'white-opacity': whiteOpacity}")
     slot
 </template>
 
 <script>
 export default {
   name: 'header-block',
+  props: ['position'],
   data () {
-    return {}
+    return {
+      whiteOpacity: 0
+    }
   }
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="stylus" scoped>
+  .header-block
+    position fixed
+    z-index 10000
+    height 83px
+    &.white-opacity
+      background-color rgba(255,255,255,0.4)
 </style>

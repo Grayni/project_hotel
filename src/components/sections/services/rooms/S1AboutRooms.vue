@@ -20,6 +20,7 @@ export default {
   .bedroom
     position relative
     margin-top 10vh
+    width 100vw
   .background
     max-width 100vw
   .bed-text

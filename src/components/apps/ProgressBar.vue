@@ -1,18 +1,22 @@
 <template lang="pug">
   div
-    .wrap-progress
+    .wrap-progress.wrapper_blur(:class="{'is-call': blurStatus}")
       h2 Гостиница Уржум
       .progress-container
         .progress-bar(id="bar")
 </template>
 
 <script>
+import blurStatus from '@/components/mixins/blurStatus'
+
 import ScrollMagic from 'scrollmagic'
 import 'ScrollMagicGSAP'
+
 import {TimelineMax} from 'gsap'
 
 export default {
   name: 'progress-bar',
+  mixins: [blurStatus],
   data () {
     return {
       bt: null

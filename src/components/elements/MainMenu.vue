@@ -1,8 +1,8 @@
 <template lang="pug">
   div
-    nav.menu.wrapper_blur(:class="{'is-call': downcomponent}" ref="menu")
+    nav.menu(ref="menu")
       ul
-        li(v-for="(item,i) in itemsArray", :id="'item-'+(i+1)", :key="'item-'+(i+1)", @click="sendMessage", :class="{'show-item': showItem}")
+        li(v-for="(item,i) in itemsArray", :id="'item-'+(i+1)", :key="'item-'+(i+1)", :class="{'show-item': showItem}")
 
           router-link(:to="item[1]") {{item[0]}}
             span(v-for="(spBlock,i) in spanArray")
@@ -10,9 +10,9 @@
           ul.submenu
             li(v-for="subitem in item[2]")
               router-link(:to="subitem[1]") {{subitem[0]}}
-    div.phone-head.wrapper_blur(id="'item-0'", :key="'item-0'", :class="{'show-item': showItem, 'is-call': downcomponent}")
+    div.phone-head.wrapper_blur(id="'item-0'", :key="'item-0'", :class="{'show-item': showItem}")
       .reverse-phone
-        button-call.call-back.button-call(name="button-call", @menublur="blurOutButton($event)",)
+        button-call.call-back.button-call(name="button-call")
         .phone-wrap
           svg.icon-phone(version="1.1", baseProfile="basic", id="Слой_1", xmlns:x="&ns_extend;", xmlns:i="&ns_ai;", xmlns:graph="&ns_graphs;", xmlns="http://www.w3.org/2000/svg", xmlns:xlink="http://www.w3.org/1999/xlink", x="0px", y="0px", width="16px" height="20px", viewBox="0 0 156.9089 149.5588", fill="#6f5c56", xml:space="preserve")
             switch
@@ -25,15 +25,12 @@
 
 <script>
 import ButtonCall from '@/components/elements/ButtonCall'
-import BlurOutButton from '@/components/mixins/BlurOutButton'
 
 export default {
   name: 'main-menu',
   components: {
     ButtonCall
   },
-  mixins: [BlurOutButton],
-  props: ['downcomponent'],
   data () {
     return {
       itemsArray: [
@@ -49,15 +46,8 @@ export default {
         ['О нас', 'about']
       ],
       spanArray: new Array(4).fill(0),
-      send: 0,
       items: [{ title: 'Главная', click: () => alert('hello~') }],
-      showItem: false,
-      blurFromHTML: false
-    }
-  },
-  methods: {
-    sendMessage () {
-      this.$emit('menumessage', this.send = this.send + 1)
+      showItem: false
     }
   },
   mounted () {

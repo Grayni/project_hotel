@@ -1,5 +1,5 @@
 <template lang="pug">
-  #show-offers.wrapper_blur(:class="{'is-call': downcomponent}")
+  #show-offers.wrapper_blur
     .about-offers(is="fade-string", :title="'Приятные бонусы'", :strings="strings", :target="'#show-offers'", :parent="'#show-offers'")
     .wrap-land(is="section")
       .left-land(id="parallax2")
@@ -28,11 +28,11 @@ import FadeString from '@/components/elements/FadeString.vue'
 
 import ScrollMagic from 'scrollmagic'
 import 'ScrollMagicGSAP'
+
 import {TweenMax, Power0, TimelineMax} from 'gsap'
 
 export default {
   name: 's3-landscape',
-  props: ['downcomponent'],
   data () {
     return {
       strings: [
