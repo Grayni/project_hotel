@@ -1678,29 +1678,18 @@ export default {
 
 @keyframes swing
   0%
-    -webkit-transform: translateX(0px)
     transform: translateX(0px)
   25%
-    -webkit-transform: translateX(20px)
     transform: translateX(20px)
   50%
-    -webkit-transform: translateX(0px)
     transform: translateX(0px)
   75%
-    -webkit-transform: translateX(-20px)
     transform: translateX(-20px)
   100%
-    -webkit-transform: translateX(0px)
     transform: translateX(0px)
 
 .sky-block
-  // -webkit-filter: blur(25)
-  // -moz-filter: blur(25)
-  // filter: blur(25)
   path
-    animation: swing 4s cubic-bezier(.1,.33,.33,.1)
-    animation-iteration-count: infinite
-    // transform: translate3d(0, 0, 0)
     filter: url(#f1)
 
 .bird-container
