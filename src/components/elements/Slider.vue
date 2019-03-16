@@ -13,6 +13,7 @@
             :alt="'Слайд-'+img",
             @click="clickOnSlide()",
           )
+
     .swiper-button-prev(slot="button-prev" @click="swiper.slidePrev()")
     .swiper-button-next(slot="button-next" @click="swiper.slideNext()")
 </template>
