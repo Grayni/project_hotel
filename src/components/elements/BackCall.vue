@@ -1,17 +1,19 @@
 <template lang="pug">
-  .wrap-call
-    .box-form
-      .box-cross(@click="closeWindow")
-      h3.title-form Заказать<br>бесплатный звонок
-      .inputs
-        input(type="text", name="name", placeholder="Ваше имя")
-        input(type="text", name="telephone", placeholder="Номер телефона")
-      .wrap-send
-        .send-phone Связаться!
-      .wrap-politics
-        .politics.
-          Отправляя данные,<br> Вы согласны с
-          #[a.link-politics(href="#", title="Политика конфинденциальности гостиницы Уржум") политикой сайта]
+  div
+    transition(name="show-call", key="show-call")
+      .wrap-call(v-if="blurStatus")
+        .box-form
+          .box-cross(@click="closeWindow")
+          h3.title-form Заказать<br>бесплатный звонок
+          .inputs
+            input(type="text", name="name", placeholder="Ваше имя")
+            input(type="text", name="telephone", placeholder="Номер телефона")
+          .wrap-send
+            .send-phone Связаться!
+          .wrap-politics
+            .politics.
+              Отправляя данные,<br> Вы согласны с
+              #[a.link-politics(href="#", title="Политика конфинденциальности гостиницы Уржум") политикой сайта]
 </template>
 
 <script>
@@ -58,6 +60,14 @@ export default {
           display inline-block
           font-size 40px
           color #cecece
+
+  .show-call-enter-active, .show-call-leave-active
+    transition all 1s ease
+
+  .show-call-enter, .show-call-leave-to
+    opacity 0
+    pointer-events none
+
   .title-form
     color white
     text-transform uppercase

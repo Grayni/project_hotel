@@ -12,12 +12,13 @@
         @scrollValue="getScroll($event)",
         :class="{'is-call': blurStatus}"
       )
-    transition(name="show-call", key="show-call")
-      back-call(v-if="blurStatus")
-
-    transition(name="show-call", key="show-call")
-      lightbox(v-if="blurStatus", :slidereturn="numberSlide", #from-slider="{ slideNum }")
-        img.show-slide(:src="'/static/slider/slide-'+slideNum+'.jpg'", :alt="'Слайд-'+slideNum")
+    back-call
+    transition(name="show-lightbox", key="show-lightbox")
+      lightbox(#from-slider="{ slideNum }", v-if="lightboxParam.state")
+        img.show-slide(
+          :src="'/static/'+lightboxParam.folder+lightboxParam.data+'.jpg'",
+          :alt="'Слайд-'+slideNum"
+        )
 </template>
 
 <script>
@@ -29,6 +30,8 @@ import ProgressBar from './components/apps/ProgressBar'
 import Lightbox from '@/components/elements/Lightbox'
 
 import blurStatus from '@/components/mixins/blurStatus'
+
+import { eventEmitter } from '@/main'
 
 export default {
   name: 'IndexTemplate',
@@ -46,7 +49,13 @@ export default {
     return {
       scrollStatus: 0,
       counter: 0,
-      lineScrollDisplay: ''
+      lineScrollDisplay: '',
+      lightboxParam: {
+        state: false,
+        images: null,
+        folder: '',
+        data: ''
+      }
     }
   },
   methods: {
@@ -59,11 +68,15 @@ export default {
   },
   created () {
     this.lineScrollDisplay = document.querySelector('html')
+
+    eventEmitter.$on('openLightbox', (e) => {
+      this.lightboxParam = Object.assign({}, e)
+    })
+
+    eventEmitter.$on('closeLightbox', () => {
+      this.lightboxParam.state = false
+    })
   }
-// ,
-// updated () {
-  // this.htmlScroll()
-// }
 }
 </script>
 
@@ -106,17 +119,17 @@ export default {
   .fade-enter, .fade-leave-to
     opacity 0
 
-  .show-call-enter-active, .show-call-leave-active
-    transition all 1s ease
-
-  .show-call-enter, .show-call-leave-to
-    opacity 0
-    pointer-events none
-
   .wrapper_blur
     filter blur(0.1px)
     transition filter .6s ease-in !important
   .is-call
     filter blur(5px)
     transition filter .6s ease-in !important
+
+  .show-lightbox-enter-active, .show-lightbox-leave-active
+    transition all 0.3s ease
+
+  .show-lightbox-enter, .show-lightbox-leave-to
+    opacity 0
+    pointer-events none
 </style>

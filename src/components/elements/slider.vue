@@ -1,17 +1,27 @@
 <template lang="pug">
   div.contain-slider
-    swiper.plugin-slider(:options="swiperOption" ref="mySwiper")
-      swiper-slide.block( v-for="img in images" :key="'slide-'+img" :data="'slide-'+img")
+    swiper.plugin-slider(:options="swiperOption", ref="mySwiper")
+      swiper-slide.block(
+        v-for="img of gallery.images",
+        :key="'slide-'+img",
+        :data-img="img"
+      )
         .wrap-slide
-          img(:src="'/static/slider/slide-'+img+'.jpg'", :alt="'Слайд-'+img")
+          img(
+            rel="preload",
+            :src="'/static/slider/'+img+'.jpg'",
+            :alt="'Слайд-'+img",
+            @click="clickOnSlide()",
+          )
     .swiper-button-prev(slot="button-prev" @click="swiper.slidePrev()")
     .swiper-button-next(slot="button-next" @click="swiper.slideNext()")
 </template>
 
 <script>
-import DropShadow from '@/components/apps/DropShadow'
-
 import 'swiper/dist/css/swiper.css'
+import { eventEmitter } from '@/main'
+
+import DropShadow from '@/components/apps/DropShadow'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 
 export default {
@@ -23,16 +33,21 @@ export default {
   },
   data () {
     return {
-      images: 5,
+      gallery: {
+        state: true,
+        images: ['baptistry', 'bed', 'caffee-table', 'sofa', 'stairs-down', 'stairs-up'],
+        folder: 'slider/',
+        data: ''
+      },
       swiperOption: {
         initialSlide: 1,
-        speed: 1500,
+        speed: 700,
         loop: true,
-        loopedSlides: 5,
         slidesPerView: 3,
         spaceBetween: 4,
         autoplay: {
           delay: 4000,
+          waitForTransition: false,
           disableOnInteraction: true
         },
         pagination: {
@@ -46,6 +61,11 @@ export default {
       }
     }
   },
+  methods: {
+    clickOnSlide (e) {
+      eventEmitter.$emit('openLightbox', e)
+    }
+  },
   computed: {
     swiper () {
       return this.$refs.mySwiper.swiper
@@ -55,8 +75,8 @@ export default {
     let vm = this
     this.swiper.on('click', () => {
       if (this.swiper.clickedSlide) {
-        const e = +this.swiper.clickedSlide.getAttribute('data-swiper-slide-index') + 1
-        vm.$emit('sendSlide', [e, this.images])
+        this.gallery.data = this.swiper.clickedSlide.getAttribute('data-img')
+        vm.clickOnSlide(this.gallery)
       }
     })
     this.swiper.autoplay.start()

@@ -1,72 +1,31 @@
 <template lang="pug">
   .lightbox
     .inbox
-      .cross(@click="statusLightbox(false)", tabindex="0")
-      slot.show-slide(name="from-slider", :slide-num="slideNum")
+      .cross(@click="clickOnCross")
+      slot.show-slide(name="from-slider")
       .arrow
         .wrap.left-wrap
-          .side.left(@click="changeSlideDown")
+          .side.left
         .wrap.right-wrap
-          .side.right(@click="changeSlideUp")
+          .side.right
 </template>
 
 <script>
+import { eventEmitter } from '@/main'
+
 export default {
   name: 'lightbox',
   props: ['slidereturn'],
-  data () {
-    return {
-      isActiveSlide: false,
-      smoothShow: false,
-      slideNum: 0,
-      tariffName: ''
-    }
-  },
-  watch: {
-    slidereturn () {
-      this.slideNum = this.slidereturn[0]
-      if (!this.slidereturn[0]) {
-        setTimeout(() => {
-          this.isActiveSlide = false
-        }, 500)
-      } else {
-        this.isActiveSlide = true
-      }
-    },
-    isActiveSlide () {
-      this.appearanceLinght()
-    }
-  },
   methods: {
-    statusLightbox (e) {
-      this.smoothShow = false
-      setTimeout(() => {
-        this.isActiveSlide = e
-        this.$emit('sendCross', 0)
-      }, 500)
-    },
-    appearanceLinght () {
-      if (this.slidereturn) {
-        setTimeout(() => {
-          this.smoothShow = true
-        }, 200)
-      }
-    },
-    changeSlideUp () {
-      (this.slideNum < this.slidereturn[1]) ? this.slideNum++ : this.slideNum = 0
-    },
-    changeSlideDown () {
-      (this.slideNum > 0) ? this.slideNum-- : this.slideNum = this.slidereturn[1]
+    // changeSlideUp () {
+    //   (this.slideNum < this.slidereturn[1]) ? this.slideNum++ : this.slideNum = 0
+    // },
+    // changeSlideDown () {
+    //   (this.slideNum > 0) ? this.slideNum-- : this.slideNum = this.slidereturn[1]
+    // },
+    clickOnCross () {
+      eventEmitter.$emit('closeLightbox')
     }
-  },
-  mounted () {
-    document.body.addEventListener('keyup', e => {
-      if (this.isActiveSlide) {
-        if (e.keyCode === 27) {
-          this.statusLightbox(false)
-        }
-      }
-    })
   }
 }
 </script>
@@ -80,16 +39,9 @@ export default {
   top 0
   left 0
   z-index 12000
-  display none
   align-items center
   justify-content center
   display flex
-  opacity 1
-  .show-slide
-    border 2px solid #fff
-    max-width 900px
-    max-height 90vh
-    object-fit contain
   .cross
     outline none
     width 40px
@@ -139,4 +91,10 @@ export default {
       left 70%
     &.right
       right 70%
+.show-slide
+  border 2px solid #fff
+  max-width 100%
+  max-width 900px
+  max-height 90vh
+  object-fit contain
 </style>

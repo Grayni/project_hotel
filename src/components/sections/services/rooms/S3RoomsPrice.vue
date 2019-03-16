@@ -42,6 +42,7 @@
 <script>
 import Card from '@/components/slots/Card'
 import Lightbox from '@/components/elements/Lightbox'
+import { eventEmitter } from '../../../../main';
 export default {
   name: 's3-rooms-price',
   components: {
@@ -184,7 +185,7 @@ export default {
   },
   methods: {
     showLightbox () {
-      this.$emit('listImgPrice', this.room.img)
+      eventEmitter.$emit('openLightbox',)
     },
     getSlide (u) {
       this.room = u
