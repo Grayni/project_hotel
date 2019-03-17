@@ -11,8 +11,8 @@
 
         template(#img-start="")
           img.img(
-            :src="'/static/test-img/'+room.img[0]+'.jpg'",
-            @click="showLightbox"
+            :src="'/static/'+gallery.folder+room.images[0]+'.jpg'",
+            @click="showLightbox(room.images[0], room.images)"
           )
 
         template(#name-room="")
@@ -41,154 +41,28 @@
 
 <script>
 import Card from '@/components/slots/Card'
-import Lightbox from '@/components/elements/Lightbox'
-import { eventEmitter } from '../../../../main';
+import rooms from '@/json/rooms.json'
+
+import { eventEmitter } from '@/main'
+
 export default {
   name: 's3-rooms-price',
   components: {
-    Card, Lightbox
+    Card
   },
   data () {
     return {
-      lightboxStatus: false,
-      rooms: [
-        {
-          id: 'econome-1',
-          img: ['about', 'contacts', 'services'],
-          'name-room': 'Эконом',
-          'bed-size': '160*200см',
-          picking: `
-            Санузел,
-            гигиенический душ,
-            комплект махровых полотен,
-            мыльные принадлежности,
-            телевизор,
-            wi-fi
-          `,
-          icons: [
-            ['toilet', 'Личный санузел'],
-            ['towel', 'Комплект махровых полотенец'],
-            ['tv', 'Спутниковое телевидение'],
-            ['wi-fi', 'Доступ в интернет'],
-            ['breackfast', 'Завтрак'],
-            ['cleaner', 'Уборка номеров']
-          ],
-          price: [ 1700, 2000 ]
-        },
-        {
-          id: 'econome-2',
-          img: ['about', 'contacts', 'services'],
-          'name-room': 'Эконом +',
-          'bed-size': '160*200см',
-          picking: `
-            Удобная рабочая зона со столом и стулом,
-            санузел,
-            гигиенический душ,
-            комплект махровых полотен,
-            мыльные принадлежности,
-            телевизор,
-            wi-fi
-          `,
-          icons: [
-            ['table', 'Стул и стол'],
-            ['toilet', 'Личный санузел'],
-            ['towel', 'Комплект махровых полотенец'],
-            ['tv', 'Спутниковое телевидение'],
-            ['wi-fi', 'Доступ в интернет'],
-            ['breackfast', 'Завтрак'],
-            ['cleaner', 'Уборка номеров']
-          ],
-          price: [ 1350, 1700 ]
-        },
-        {
-          id: 'standart',
-          img: ['about', 'contacts', 'services'],
-          'name-room': 'Стандарт',
-          'bed-size': '160*200см',
-          picking: `
-            Удобная рабочая зона со столом и стулом,
-            санузел,
-            душевая кабина,
-            комплект махровых полотен,
-            мыльные принадлежности,
-            телевизор,
-            wi-fi
-          `,
-          icons: [
-            ['table', 'Стул и стол'],
-            ['toilet', 'Личный санузел'],
-            ['shower', 'Душевая кабина'],
-            ['towel', 'Комплект махровых полотенец'],
-            ['tv', 'Спутниковое телевидение'],
-            ['wi-fi', 'Доступ в интернет'],
-            ['breackfast', 'Завтрак'],
-            ['cleaner', 'Уборка номеров']
-          ],
-          price: [ 2000, 2500 ]
-        },
-        {
-          id: 'family',
-          img: ['about', 'contacts', 'services'],
-          'name-room': 'Семейный',
-          'bed-size': '160*200см x 1, 90*200см x 2',
-          picking: `
-            Удобная рабочая зона со столом и стулом,
-            cанузел,
-            душевая кабина,
-            комплект махровых полотен,
-            мыльные принадлежности,
-            телевизор,
-            wi-fi
-          `,
-          icons: [
-            ['table', 'Стул и стол'],
-            ['toilet', 'Личный санузел'],
-            ['shower', 'Душевая кабина'],
-            ['towel', 'Комплект махровых полотенец'],
-            ['tv', 'Спутниковое телевидение'],
-            ['wi-fi', 'Доступ в интернет'],
-            ['breackfast', 'Завтрак'],
-            ['cleaner', 'Уборка номеров']
-          ],
-          price: [ 2500, 3200, 4200 ]
-        },
-        {
-          id: 'vip',
-          img: ['about', 'contacts', 'services'],
-          'name-room': 'VIP',
-          'bed-size': '160x200 см',
-          picking: `
-            Удобная рабочая зона со столом и стулом,
-            санузел,
-            душевая кабина,
-            комплект махровых полотен,
-            мыльные принадлежности,
-            телевизор,
-            wi-fi,
-            сауна 2 часа
-          `,
-          icons: [
-            ['table', 'Стул и стол'],
-            ['toilet', 'Личный санузел'],
-            ['shower', 'Душевая кабина'],
-            ['towel', 'Комплект махровых полотенец'],
-            ['tv', 'Спутниковое телевидение'],
-            ['wi-fi', 'Доступ в интернет'],
-            ['breackfast', 'Завтрак'],
-            ['cleaner', 'Уборка номеров'],
-            ['sauna', 'Сауна на 2 часа']
-          ],
-          price: [ 4500, 4500 ]
-        }
-      ]
+      gallery: {
+        folder: 'test-img/'
+      },
+      rooms: rooms
     }
   },
   methods: {
-    showLightbox () {
-      eventEmitter.$emit('openLightbox',)
-    },
-    getSlide (u) {
-      this.room = u
+    showLightbox (data, images) {
+      eventEmitter.$emit('openLightbox',
+        Object.assign(this.gallery, { data, images })
+      )
     }
   }
 }

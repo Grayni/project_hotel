@@ -35,7 +35,6 @@ export default {
   data () {
     return {
       gallery: {
-        state: true,
         images: ['baptistry', 'bed', 'caffee-table', 'sofa', 'stairs-down', 'stairs-up'],
         folder: 'slider/',
         data: ''

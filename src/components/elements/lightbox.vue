@@ -2,11 +2,12 @@
   .lightbox
     .inbox
       .cross(@click="clickOnCross")
-      slot.show-slide(name="from-slider")
+      div(@click="changeSlideUp()")
+        slot.show-slide(name="from-slider")
       .arrow
-        .wrap.left-wrap
+        .wrap.left-wrap(@click="changeSlideDown()")
           .side.left
-        .wrap.right-wrap
+        .wrap.right-wrap(@click="changeSlideUp()")
           .side.right
 </template>
 
@@ -15,14 +16,24 @@ import { eventEmitter } from '@/main'
 
 export default {
   name: 'lightbox',
-  props: ['slidereturn'],
+  props: ['data-lightbox'],
   methods: {
-    // changeSlideUp () {
-    //   (this.slideNum < this.slidereturn[1]) ? this.slideNum++ : this.slideNum = 0
-    // },
-    // changeSlideDown () {
-    //   (this.slideNum > 0) ? this.slideNum-- : this.slideNum = this.slidereturn[1]
-    // },
+    changeSlideUp () {
+      const obj = this.dataLightbox
+      if (obj.images) {
+        (obj.images.indexOf(obj.data) < obj.images.length - 1)
+          ? this.$emit('changeSlide', obj.images[obj.images.indexOf(obj.data) + 1])
+          : this.$emit('changeSlide', obj.images[0])
+      }
+    },
+    changeSlideDown () {
+      const obj = this.dataLightbox
+      if (obj.images) {
+        (obj.images.indexOf(obj.data) > 0)
+          ? this.$emit('changeSlide', obj.images[obj.images.indexOf(obj.data) - 1])
+          : this.$emit('changeSlide', obj.images[obj.images.length - 1])
+      }
+    },
     clickOnCross () {
       eventEmitter.$emit('closeLightbox')
     }

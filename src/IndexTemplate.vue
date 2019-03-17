@@ -12,12 +12,18 @@
         @scrollValue="getScroll($event)",
         :class="{'is-call': blurStatus}"
       )
+
     back-call
+
     transition(name="show-lightbox", key="show-lightbox")
-      lightbox(#from-slider="{ slideNum }", v-if="lightboxParam.state")
+      lightbox(
+        #from-slider="",
+        v-if="lightboxParam.state",
+        :data-lightbox="lightboxParam",
+        @changeSlide="lightboxParam.data = $event")
         img.show-slide(
           :src="'/static/'+lightboxParam.folder+lightboxParam.data+'.jpg'",
-          :alt="'Слайд-'+slideNum"
+          :alt="'Слайд-'+lightboxParam.data"
         )
 </template>
 
@@ -53,7 +59,7 @@ export default {
       lightboxParam: {
         state: false,
         images: null,
-        folder: '',
+        folder: '1',
         data: ''
       }
     }
@@ -70,10 +76,15 @@ export default {
     this.lineScrollDisplay = document.querySelector('html')
 
     eventEmitter.$on('openLightbox', (e) => {
-      this.lightboxParam = Object.assign({}, e)
+      this.lightboxParam = Object.assign(this.lightboxParam, e)
+      if (this.lightboxParam.images) {
+        this.lightboxParam.state = true
+      }
     })
 
     eventEmitter.$on('closeLightbox', () => {
+      this.lightboxParam.data = ''
+      this.lightboxParam.images = null
       this.lightboxParam.state = false
     })
   }
