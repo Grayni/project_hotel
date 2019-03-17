@@ -24,9 +24,8 @@
                 span(v-if="num === 1 && index+1 > 1 || num === 2 && index+1 > 2") +
             slot.price(name="price" :tariff="tariff")
     .block.booking
-      <button-call #button-call>
+      button-call(#button-call="")
         .button-call Забронировать
-      </button-call>
 </template>
 
 <script>
@@ -35,9 +34,7 @@ import ButtonCall from '@/components/elements/ButtonCall'
 export default {
   name: 'card',
   props: ['price', 'icons', 'id'],
-  components: {
-    ButtonCall
-  }
+  components: { ButtonCall }
 }
 </script>
 
@@ -92,8 +89,6 @@ export default {
   .booking
     display flex
     justify-content center
-    .button
-      back
   .picking
     display flex
     flex-grow 3
