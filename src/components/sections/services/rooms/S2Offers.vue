@@ -1,34 +1,27 @@
-<template>
-  <div>
-    <div class="offers">
-      <div class="row">
-        <offer v-for="offer in offers" :key="offer[0]">
+<template lang="pug">
+  div(id="offers")
+    .offers
+      .row
+        offer(v-for="offer in offers" :key="offer[0]")
+          template(#img="")
+            img.img(
+              :src="'/static/rooms/offers/'+offer[0]+'.png'",
+              width="100",
+              height="100"
+            )
 
-          <template #img>
-            <img class="img" :src="'/static/rooms/offers/'+offer[0]+'.png'" width="100" height="100">
-          </template>
+          template(#title-offer="")
+            h2.title {{ offer[1] }}
 
-          <template #title-offer>
-            <h2 class="title">
-              {{ offer[1] }}
-            </h2>
-          </template>
+          template(#description="")
+            p.description {{ offer[2] }}
 
-          <template #description>
-            <p class="description">
-              {{ offer[2] }}
-            </p>
-          </template>
-        </offer>
-      </div>
-    </div>
-
-    <p class="star">* периодичность зависит от снятого номера</p>
-  </div>
+    p.star * периодичность зависит от снятого номера
 </template>
 
 <script>
 import Offer from '@/components/slots/Offer'
+
 export default {
   name: 's2-offers',
   components: {
