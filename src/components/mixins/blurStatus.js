@@ -12,7 +12,7 @@ export default {
     })
 
     eventEmitter.$on('closeCallBack', () => {
-      this.blurStatus = false
+      this.blurStatus = false 
     })
   }
 }
