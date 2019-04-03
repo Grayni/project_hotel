@@ -72,7 +72,7 @@ export default {
   .my-map
     background #f1eee9
     width 100vw
-    min-height 400px
+    min-height 600px
     height 70vh
     .ymaps-2-1-72-balloon-pane
       transition all 1s ease

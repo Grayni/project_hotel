@@ -47,12 +47,16 @@ export default {
     display flex
     flex-direction column
     min-height 250px
+    position relative
+    top 0
+    z-index 3
+    margin-bottom 120px
   .wrap-text-block
     transform: translate(0, -50%)
     position absolute
     display flex
     max-width 45vw
-    z-index 1
+    bottom -30vh
     left 3vw
     &__frame
       width 100%
@@ -72,5 +76,9 @@ export default {
       border-radius 3px
       letter-spacing 7px
       line-height 30px
-
+  @media (max-width 868px)
+    .wrap-text-block
+      display none
+    .conclusion
+      margin-bottom 0
 </style>

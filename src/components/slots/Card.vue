@@ -20,7 +20,7 @@
           li(v-for="(tariff, index) in price" :key="'price-'+index")
             .wrap-value-person
               .value-person(v-for="num in index+1")
-                img(src="/static/icons-rooms/man.png" width="36" height="36")
+                img(src="/static/services/rooms/icons-rooms/man.png" width="36" height="36")
                 span(v-if="num === 1 && index+1 > 1 || num === 2 && index+1 > 2") +
             slot.price(name="price" :tariff="tariff")
     .block.booking
@@ -44,6 +44,7 @@ export default {
     color #434343
     min-height 400px
     margin 2vw
+    min-width 318px
     display flex
     flex-direction column
     box-shadow 0px 1px 2px rgba(4,4,4,0.1)
@@ -114,4 +115,8 @@ export default {
         width 35px
         display flex
         justify-content center
+  @media (max-width: 820px)
+    .card
+      margin-left 0
+      margin-right 0
 </style>

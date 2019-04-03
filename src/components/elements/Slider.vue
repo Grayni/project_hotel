@@ -1,17 +1,21 @@
 <template lang="pug">
-  div.contain-slider
-    swiper.plugin-slider(:options="swiperOption", ref="mySwiper")
+  .contain-slider
+    swiper.plugin-slider(
+      :options="swiperOption",
+      ref="mySwiper"
+    )
       swiper-slide.block(
-        v-for="img of gallery.images",
-        :key="'slide-'+img",
-        :data-img="img"
+        v-for="img in gallery.images",
+        :key="'slide-'+img.name",
+        :data-img="img.name",
+        :alt="img.title",
+        :title="img.title"
       )
         .wrap-slide
           img(
             rel="preload",
-            :src="'/static/slider/'+img+'.jpg'",
-            :alt="'Слайд-'+img",
-            @click="clickOnSlide()",
+            :src="'/static/slider/'+img.name+'.jpg'",
+            :alt="'Слайд-'+img.title"
           )
 
     .swiper-button-prev(slot="button-prev" @click="swiper.slidePrev()")
@@ -35,15 +39,46 @@ export default {
   data () {
     return {
       gallery: {
-        images: ['baptistry', 'bed', 'caffee-table', 'sofa', 'stairs-down', 'stairs-up'],
+        images: [
+          {
+            name: 'baptistry',
+            title: 'Купель'
+          },
+          {
+            name: 'bed',
+            title: 'Кровать'
+          },
+          {
+            name: 'caffee-table',
+            title: 'Кафе'
+          },
+          { name: 'sofa',
+            title: 'Диван'
+          },
+          {
+            name: 'stairs-down',
+            title: 'Лестница вид снизу'
+          },
+          { name: 'stairs-up',
+            title: 'Лестница вид сверху'
+          }
+        ],
         folder: 'slider/',
         data: ''
       },
       swiperOption: {
+        slidesPerView: 3,
+        breakpoints: {
+          490: {
+            slidesPerView: 1
+          },
+          840: {
+            slidesPerView: 2
+          }
+        },
         initialSlide: 1,
         speed: 700,
         loop: true,
-        slidesPerView: 3,
         spaceBetween: 4,
         autoplay: {
           delay: 4000,
@@ -72,11 +107,13 @@ export default {
     }
   },
   mounted () {
-    let vm = this
     this.swiper.on('click', () => {
       if (this.swiper.clickedSlide) {
-        this.gallery.data = this.swiper.clickedSlide.getAttribute('data-img')
-        vm.clickOnSlide(this.gallery)
+        this.gallery.data = {
+          name: this.swiper.clickedSlide.getAttribute('data-img'),
+          title: this.swiper.clickedSlide.getAttribute('title')
+        }
+        this.clickOnSlide(this.gallery)
       }
     })
     this.swiper.autoplay.start()
@@ -210,4 +247,16 @@ svg
     transform: scale(1)
   100%
     transform: scale(1.1)
+
+@media (max-width: 840px)
+  .block .wrap-slide img
+    max-width: 50vw
+
+@media (max-width: 490px)
+  .plugin-slider
+    min-height: 300px
+    max-height: 300px
+    overflow: hidden!important
+  .block .wrap-slide img
+    max-width: 100vw
 </style>

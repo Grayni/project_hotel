@@ -14,6 +14,7 @@ export default {
 <style lang="stylus" scoped>
   .offer
     width 23vw
+    min-width 250px
     max-width 400px
     height 200px
     margin 20px 0

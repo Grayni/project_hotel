@@ -1,7 +1,7 @@
 <template lang="pug">
   Services
     template(#img-background="")
-      img.background(src="/static/backgrounds/sauna.jpg")
+      img.background(src="/static/services/sauna/sauna.jpg")
     template(#text-background="")
       p Наш гостиничные комплекс может предложить сауну или парную.
       p  В подарок:

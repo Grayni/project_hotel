@@ -19,7 +19,7 @@ export default {
   .header-block
     position fixed
     z-index 10000
-    height 83px
+    height 69px
     &.white-opacity
       background-color rgba(255,255,255,0.4)
 </style>

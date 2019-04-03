@@ -11,7 +11,6 @@ import blurStatus from '@/components/mixins/blurStatus'
 
 import ScrollMagic from 'scrollmagic'
 import 'ScrollMagicGSAP'
-
 import {TimelineMax} from 'gsap'
 
 export default {
@@ -27,7 +26,10 @@ export default {
       let winScroll = document.body.scrollTop || document.documentElement.scrollTop
       let height = document.documentElement.scrollHeight - document.documentElement.clientHeight
       let scrolled = (winScroll / height) * 100
-      document.getElementById('bar').style.height = scrolled + '%'
+      let bar = document.getElementById('bar')
+      if (bar) {
+        bar.style.height = scrolled + '%'
+      }
     },
     scrollBarShow () {
       // eslint-disable-next-line
@@ -45,7 +47,7 @@ export default {
     }
   },
   beforeMount () {
-    window.onscroll = () => this.scrollBarDetect()
+    document.onscroll = () => this.scrollBarDetect()
   },
   mounted () {
     this.scrollBarShow()

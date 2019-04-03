@@ -1,24 +1,16 @@
 <template lang="pug">
-  div.text-about
-      .wrap-text
-        p.
-          Когда насыщенный рабочий день, полный напряжения и суеты, подходит к
-          завершению, хочется устроить себе настоящий отдых, который поможет
-          забыть о будничной рутине, а также избавит от накопленной усталости.
+  .text-about
+    .wrap-text
+      p.
+        Когда насыщенный рабочий день, полный напряжения и суеты, подходит к
+        завершению, хочется устроить себе настоящий отдых, который поможет
+        забыть о будничной рутине, а также избавит от накопленной усталости.
 
-        p Мы позаботились о Вашем отдыхе и создали гостиничный комплекс Уржум.
+      p Мы позаботились о Вашем отдыхе и создали гостиничный комплекс Уржум.
 
 </template>
 
 <script>
-export default {
-  name: 's1-text-about',
-  data () {
-    return {
-      title: 'I am a dynamic slot title1'
-    }
-  }
-}
 </script>
 
 <style lang="stylus" scoped>
@@ -37,4 +29,15 @@ export default {
       margin-bottom 32px
   .letter
     border-bottom 1px solid #6f5c56
+
+  @media (max-width: 1360px)
+    .wrap-text
+      margin-top 5vh
+      margin-bottom 20vh
+      padding 10px
+
+  @media (max-width: 1024px)
+    .wrap-text
+      background rgba(255,255,255,0.5)
+      border-radius 15px
 </style>

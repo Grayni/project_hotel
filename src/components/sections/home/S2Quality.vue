@@ -12,7 +12,7 @@
     div(id='target-square')
 
       .top-block(id="target-top-block-text")
-        fade-string(
+        fade-string.about-complex(
           :title="'Сервис комплекса'",
           :strings="strings",
           :target="'#target-square'",
@@ -149,99 +149,104 @@ export default {
 }
 
 </script>
-<style lang="sass" scoped>
-  $shift: -20vh;
+<style lang="stylus" scoped>
+  $shift: -20vh
 
   .wrap-quality
-    z-index: 2
-    position: relative
-    margin: 0
-    top: $shift
-    width: 100vw
+    z-index 2
+    position relative
+    margin 0
+    top $shift
+    width 100vw
 
     svg
       &.arc
-        pointer-events: none
-        position: relative
-        bottom: 0
-        -webkit-filter: url(#dropshadow)
-        -moz-filter: url("#blur")
-        filter: url(#dropshadow)
-        z-index: -1
+        pointer-events none
+        position relative
+        bottom 0
+        filter url(#dropshadow)
+        z-index -1
 
       .b, .a, .rectangle
-        fill: #f1eee9
+        fill #f1eee9
       .rectangle
-        visibility: hidden
-        border: 0
-        stroke-width: 0
+        visibility hidden
+        border 0
+        stroke-width 0
 
     .top-block
-      background: #f1eee9
+      background #f1eee9
 
   .slider
-    width: 80vw
-    max-width: 1496px 
-    margin-left: 10vw
-    margin-right: 10vw
-    padding-top: 10vw
-    left: 0
-    right: 0
-    opacity: 1
-    position: relative
+    width 80vw
+    max-width 1496px 
+    margin-left 10vw
+    margin-right 10vw
+    padding-top 10vw
+    left 0
+    right 0
+    opacity 1
+    position relative
 
   .bottom-block
-    position: relative
+    position relative
   .bottom-block-2
-    background: #f1eee9
+    background #f1eee9
 
   .wrap-text-block
-    position: absolute
-    display: flex
-    max-width: 500px
-    z-index: 1
+    position absolute
+    display flex
+    max-width 500px
+    z-index 1
     &:nth-child(1)
-      transform: translate(0, -50%)
-      top: 0
-      right: 5vw
+      transform translate(0, -50%)
+      top 0
+      right 5vw
     &:nth-child(3)
-      transform: translate(0, 50%)
-      bottom: 0
-      left: 5vw
+      transform translate(0, 50%)
+      bottom 0
+      left 5vw
 
     &__frame
-      width: 100%
-      height: 100%
-      position: absolute
-      top: 0
-      left: 0
+      width 100%
+      height 100%
+      position absolute
+      top 0
+      left 0
     &__content
-      font: bold 14px 'Academic', Arial, 'sans-serif'
-      letter-spacing: 3px
-      background: #fff
-      color: #3e3937
-      display: inline-block
-      margin: 2vh 2vh 2vh 2vh
-      padding: 3vh
-      text-transform: uppercase
-      border-radius: 3px 
-      letter-spacing: 7px
-      line-height: 30px
+      font bold 14px 'Academic', Arial, 'sans-serif'
+      letter-spacing 3px
+      background #fff
+      color #3e3937
+      display inline-block
+      margin 2vh 2vh 2vh 2vh
+      padding 3vh
+      text-transform uppercase
+      border-radius 3px 
+      letter-spacing 7px
+      line-height 30px
 
   .parallaxParent
-    height: 80vh
-    overflow: hidden
-    display: block
-    position: relative
-    background-color: #f1eee9
+    height 80vh
+    overflow hidden
+    display block
+    position relative
+    background-color #f1eee9
     div
-      background-image: url('/static/backgrounds/pillow-parallax.jpg')
-      background-repeat: no-repeat
-      background-size: cover
-      position: absolute
-      width: 100%
-      height: 150%
-      top: 0
-      z-index: 0
+      background-image url('/static/backgrounds/pillow-parallax.jpg')
+      background-repeat no-repeat
+      background-size cover
+      position absolute
+      width 100%
+      height 150%
+      top 0
+      z-index 0
+@media (max-width: 1280px)
+  .slider
+    margin 150px 10vw 20px 10vw
+    padding-bottom 0
 
+@media (max-width: 490px)
+    .about-complex
+      padding-bottom 40vh
 </style>

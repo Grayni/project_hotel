@@ -17,6 +17,8 @@ import FooterWrap from '@/components/elements/FooterWrap'
 
 import blurStatus from '@/components/mixins/blurStatus'
 
+import {TimelineMax} from 'gsap'
+
 export default {
   name: 'home',
   metaInfo: {
@@ -28,7 +30,8 @@ export default {
   },
   data () {
     return {
-      numberSlide: 0
+      numberSlide: 0,
+      timeLine: null
     }
   },
   methods: {
@@ -38,6 +41,10 @@ export default {
     getSlide (u) {
       this.numberSlide = u
     }
+  },
+  mounted () {
+    this.timeLine = new TimelineMax()
+    this.timeLine.fromTo(['section', 'svg', 'img', 'p'], 1.2, {autoAlpha: 0}, {autoAlpha: 1})
   }
 }
 </script>

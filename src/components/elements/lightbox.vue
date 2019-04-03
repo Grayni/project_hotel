@@ -20,6 +20,7 @@ export default {
   methods: {
     changeSlideUp () {
       const obj = this.dataLightbox
+
       if (obj.images) {
         (obj.images.indexOf(obj.data) < obj.images.length - 1)
           ? this.$emit('changeSlide', obj.images[obj.images.indexOf(obj.data) + 1])
@@ -28,6 +29,7 @@ export default {
     },
     changeSlideDown () {
       const obj = this.dataLightbox
+
       if (obj.images) {
         (obj.images.indexOf(obj.data) > 0)
           ? this.$emit('changeSlide', obj.images[obj.images.indexOf(obj.data) - 1])
@@ -104,8 +106,11 @@ export default {
       right 70%
 .show-slide
   border 2px solid #fff
-  max-width 100%
   max-width 900px
   max-height 90vh
   object-fit contain
+
+@media all and (orientation:portrait)
+  .show-slide
+    max-width 90vw
 </style>

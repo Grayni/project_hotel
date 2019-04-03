@@ -127,110 +127,114 @@ export default {
 }
 </script>
 
-<style scoped lang="sass">
+<style scoped lang="stylus">
   .wrap-land
-    min-height: 450px
-    height: 100vh
-    width: 100vw
-    align-items: center
-    display: flex
-    justify-items: center
-    z-index: 2
+    min-height 450px
+    height 100vh
+    width 100vw
+    align-items center
+    display flex
+    justify-items center
+    z-index 2
     .right-land
-      background-image: url('/static/backgrounds/skin.jpg')
-      background-size: 144px 144px
-      width: 50vw
-      height: 130%
+      background-image url('/static/backgrounds/skin.jpg')
+      background-size 144px 144px
+      width 50vw
+      height 130%
     .left-land
-      width: 50vw
-      height: 100%
-      overflow: hidden
-      display: flex
-      align-items: center
-      justify-content: center
-      position: relative
+      width 50vw
+      height 100%
+      overflow hidden
+      display flex
+      align-items center
+      justify-content center
+      position relative
       &__in
-        transform: scale(-1, 1)
-        width: 100%
-        background: red
-        background-image: url('/static/backgrounds/door.jpg')
-        background-size: cover
-        position: absolute
-        width: 100%
-        height: 110%
-        top: 0
-        z-index: 0
+        transform scale(-1, 1)
+        width 100%
+        background-image url('/static/backgrounds/door.jpg')
+        background-size cover
+        position absolute
+        width 100%
+        height 110%
+        top 0
+        z-index 0
 
-  .about-offers
-    padding-bottom: 20vh
+  .about
+    padding-bottom 20vh
 
   #show-offers
-    top: -20vh
-    position: relative
-    background: #f1eee9
+    top 0
+    position relative
+    z-index 2
 
   .offers-header
     h2
-      color: #f1eee9
-      font: 38px 'Academic', Arial, sans-serif
-      text-transform: uppercase
-      line-height: 58px
-      letter-spacing: 8px
-      position: relative
-      left: 4vw
-      top: -4vw
+      color #f1eee9
+      font 38px 'Academic', Arial, sans-serif
+      text-transform uppercase
+      line-height 58px
+      letter-spacing 8px
+      position relative
+      left 4vw
+      top -4vw
       span
-        position: relative
+        position relative
 
   .offer
-    display: flex
-    justify-content: center
-    flex-direction: column
-    height: 100%
+    display flex
+    justify-content center
+    flex-direction column
+    height 100%
     &__unit-part
-      display: flex
-      align-items: center
-      margin: 2vw 4vw
-      position: relative
+      display flex
+      align-items center
+      margin 2vw 4vw
+      position relative
     &__title
-      font: bold 20px 'Futura', Arial, sans-serif
-      letter-spacing: 2px
-      display: inline-block
-      margin-bottom: 10px
+      font bold 20px 'Futura', Arial, sans-serif
+      letter-spacing 2px
+      display inline-block
+      margin-bottom 10px
     &__descript
-      color: #f1eee9
-      font: 15px 'Futura', Arial, sans-serif
-      line-height: 18px
+      color #f1eee9
+      font 15px 'Futura', Arial, sans-serif
+      line-height 18px
     &__wrap-img
-      border: 4px dashed #6f5c56
-      border-top: 2px solid #6f5c56
-      border-bottom: 2px solid #6f5c56
-      transform: rotate(45deg)
-      padding: 4px
-      border-radius: 50%
-      width: 150px
-      height: 150px
-      display: flex
-      align-items: center
-      justify-content: center
-      opacity: 0.3
-      margin-right: 3vw
+      border 4px dashed #6f5c56
+      border-top 2px solid #6f5c56
+      border-bottom 2px solid #6f5c56
+      transform rotate(45deg)
+      padding 4px
+      border-radius 50%
+      width 150px
+      height 150px
+      display flex
+      align-items center
+      justify-content center
+      opacity 0.3
+      margin-right 3vw
     &__img
-      width: 90px
-      height: 90px
-      transform: rotate(-45deg)
+      width 90px
+      height 90px
+      transform rotate(-45deg)
     &__link
-      text-transform: uppercase
-      color: #6f5c56
-      text-decoration: none
-      display: inline-block
-      border-bottom: 1px solid #6f5c56
-      padding-bottom: 2px
-      letter-spacing: 3px
-      font: bold 12px 'Futura', Arial, sans-serif
-      margin-top: 20px
-      transition: color 0.5s ease
+      text-transform uppercase
+      color #6f5c56
+      text-decoration none
+      display inline-block
+      border-bottom 1px solid #6f5c56
+      padding-bottom 2px
+      letter-spacing 3px
+      font bold 12px 'Futura', Arial, sans-serif
+      margin-top 20px
+      transition color 0.5s ease
       &:hover
-        color: #927971
-        transition: color 0.5s ease
+        color #927971
+        transition color 0.5s ease
+  @media (max-width: 868px)
+    .wrap-land
+      .right-land
+        width 100vw
+        padding 40px 0
 </style>

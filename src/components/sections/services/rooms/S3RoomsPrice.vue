@@ -11,8 +11,8 @@
 
         template(#img-start="")
           img.img(
-            :src="'/static/'+gallery.folder+room.images[0]+'.jpg'",
-            @click="showLightbox(room.images[0], room.images)"
+            :src="'/static/'+folder+'thumbnails/'+room.id+'.jpg'",
+            @click="showLightbox(room.id, room.images[0], room.images)"
           )
 
         template(#name-room="")
@@ -23,7 +23,7 @@
 
         template(#icon="{ icon }")
           img(
-            :src="'/static/icons-rooms/'+icon[0]+'.png'",
+            :src="'/static/services/rooms/icons-rooms/'+icon[0]+'.png'",
             :alt="icon[1]", :title="icon[1]",
             width="25",
             height="25"
@@ -53,15 +53,17 @@ export default {
   data () {
     return {
       gallery: {
-        folder: 'test-img/'
+        folder: ''
       },
-      rooms: rooms
+      rooms,
+      folder: 'services/rooms/gallery/'
     }
   },
   methods: {
-    showLightbox (data, images) {
+    showLightbox (way, data, images) {
+      this.gallery.folder = this.folder + way + '/'
       eventEmitter.$emit('openLightbox',
-        Object.assign(this.gallery, { data, images })
+        Object.assign({}, this.gallery, { data, images })
       )
     }
   }
@@ -79,5 +81,7 @@ export default {
     justify-content center
     flex-wrap wrap
     width 90vw
-
+  @media (max-width: 820px)
+    .rooms-price
+      width 100vw
 </style>

@@ -18,80 +18,60 @@
           .map
             a(href="https://yandex.ru/maps/?um=constructor%3A52d7859f4d561c6214c01ebba2562f2b6cd65010d7f851a111c51341b479e752&amp;source=constructorStatic" target="_blank")
               img(src="https://api-maps.yandex.ru/services/constructor/1.0/static/?um=constructor%3A52d7859f4d561c6214c01ebba2562f2b6cd65010d7f851a111c51341b479e752&amp;width=570&amp;height=250&amp;lang=ru_RU" alt="" style="border: 0;")
-    div.urzhumka
+    .urzhumka
       p С территории базы открывается потрясающий вид на реку Уржумка и живописные леса,<br>а также поля и местные окрестности.<br> А с высоты горы это выглядит более чем красиво. На это стоит посмотреть...
 </template>
 
 <script>
 import ScrollMagic from 'scrollmagic'
 import 'ScrollMagicGSAP'
+// eslint-disable-next-line
 import {TimelineMax, Power0} from 'gsap'
 
 export default {
   name: 's2-complex',
   data () {
     return {
-      timeLine: null,
+      controller: new ScrollMagic.Controller(),
+      parallax1: null,
+      parallax2: null,
+      parallax3: null,
+      parallax4: null,
+      parallax5: null,
+      parallax6: null,
+      timeLine1: null,
       timeLine2: null
     }
   },
+  methods: {
+    parallax (dur, el, size) {
+      return new ScrollMagic.Scene({
+        triggerElement: '#complex',
+        triggerHook: 1,
+        duration: dur * 100 + '%'
+      }).setTween(el, { y: -10 * size + 'vh', ease: Power0.easeNone })
+        .addTo(this.controller)
+    }
+  },
   mounted () {
-    const controller = new ScrollMagic.Controller()
+    this.parallax1 = this.parallax(2, '.god', 1)
+    this.parallax2 = this.parallax(2, '.gallery__in', 2)
+    this.parallax3 = this.parallax(2, '.complex-text', 4)
+    this.parallax4 = this.parallax(2, '.gallery > img', 6)
+    this.parallax5 = this.parallax(4, '.map', 3)
+    this.parallax6 = this.parallax(4, '.urzhumka', 6)
 
-    // parallax section
-    new ScrollMagic.Scene({
-      triggerElement: '#complex',
-      triggerHook: 1,
-      duration: '200%'
-    }).setTween('.gallery > img', {y: '-60vh', ease: Power0.easeNone})
-      .addTo(controller)
+    this.timeLine1 = new TimelineMax()
+    let tween = this.timeLine1.fromTo('.urzhumka', 1.2, {autoAlpha: 0}, {autoAlpha: 1})
 
-    new ScrollMagic.Scene({
-      triggerElement: '#complex',
-      triggerHook: 1,
-      duration: '200%'
-    }).setTween('.gallery__in', {y: '-20vh', ease: Power0.easeNone})
-      .addTo(controller)
-
-    new ScrollMagic.Scene({
-      triggerElement: '#complex',
-      triggerHook: 1,
-      duration: '200%'
-    }).setTween('.complex-text', {y: '-40vh', ease: Power0.easeNone})
-      .addTo(controller)
-
-    new ScrollMagic.Scene({
-      triggerElement: '#complex',
-      triggerHook: 1,
-      duration: '200%'
-    }).setTween('.god', {y: '-10vh', ease: Power0.easeNone})
-      .addTo(controller)
-
-    new ScrollMagic.Scene({
-      triggerElement: '#complex',
-      triggerHook: 1,
-      duration: '400%'
-    }).setTween('.map', {y: '-30vh', ease: Power0.easeNone})
-      .addTo(controller)
-
-    new ScrollMagic.Scene({
-      triggerElement: '#complex',
-      triggerHook: 1,
-      duration: '400%'
-    }).setTween('.urzhumka', {y: '-60vh', ease: Power0.easeNone})
-      .addTo(controller)
-
-    this.timeLine = new TimelineMax()
-
-    const tween = this.timeLine.fromTo('.urzhumka', 1.2, {autoAlpha: 0}, {autoAlpha: 1})
     new ScrollMagic.Scene({
       triggerElement: '.map',
       offset: 300
     }).setTween(tween)
-      .addTo(controller)
+      .addTo(this.controller)
 
     this.timeLine2 = new TimelineMax()
-    this.timeLine2.fromTo(['img', 'p'], 1.2, {autoAlpha: 0}, {autoAlpha: 1})
+    this.timeLine2.fromTo(['img', 'p'], 3.2, {autoAlpha: 0}, {autoAlpha: 1})
   }
 }
 </script>
@@ -166,4 +146,38 @@ export default {
     justify-content flex-end
     p
       display inline-block
+
+  @media (max-width: 1360px)
+    .wrap-text
+      padding-bottom 20vh
+    .gallery > img.hotel
+      top 70vh
+    .complex-text
+      transform translate3d(0, 0, 0)!important
+      top -14vh
+      display flex
+      flex-direction column
+      background rgba(255,255,255,0.5)
+      border-radius 15px
+      padding 10px
+      p
+        width calc(100vw - 40px)
+        display inline-block
+    .cross-img-text
+      flex-direction column
+      position relative
+    .wrap-complex-text
+      top 0
+      right auto
+      left 20px
+      position absolute
+      width 100%
+    .map
+      margin-top 70vh
+      width 100%
+      display flex
+      justify-content flex-end
+  @media (max-width: 1024px)
+    .god
+      display none
 </style>

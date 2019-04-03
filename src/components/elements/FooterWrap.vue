@@ -20,7 +20,7 @@ export default {
   mixins: [blurStatus],
   computed: {
     activePage: function () {
-      return (this.$route.fullPath === '/about') ? 1 : 0
+      return (this.$route.fullPath === '/about')
     }
   },
   mounted () {

@@ -1,5 +1,5 @@
 <template lang="pug">
-  div.about
+  .about
     h2.title {{title}}
     p(v-for="(words,i) in strings" :key='i')
       span.word-blur(v-for="word in words" :key="word") {{word}}
@@ -42,27 +42,47 @@ export default {
 }
 </script>
 
-<style lang="sass" scoped>
+<style lang="stylus" scoped>
 .about
-  font: 32px 'Academic', Arial, sans-serif
-  line-height: 58px
-  letter-spacing: 10px
-  text-transform: uppercase
-  color: #3e3937
-  transform: matrix(1, 0, 0, 1, 0, 0)
-  margin-left: 5vw
-  padding: 40px 0 80px 0
-
+  font 32px 'Academic', Arial, sans-serif
+  line-height 58px
+  letter-spacing 10px
+  text-transform uppercase
+  color #3e3937
+  transform matrix(1, 0, 0, 1, 0, 0)
+  margin-left 5vw
+  padding 40px 0 80px 0
   p:first-child
-    text-indent: 26px
+    text-indent 26px
 
   .word-blur
-    margin-right: 25px
-    transform: scale(2)
+    margin-right 25px
+    transform scale(2)
 
   h2.title
-    font: italic 18px 'Futura', Arial, 'sans-serif'
-    display: inline-block
-    color: #6f5c56
-    border-bottom: 1px solid #6f5c56
+    font italic 18px 'Futura', Arial, 'sans-serif'
+    display inline-block
+    color #6f5c56
+    border-bottom 1px solid #6f5c56
+
+@media (max-width: 1280px)
+  .about
+    padding-bottom 56vh
+
+@media (max-width: 868px)
+  .about
+    font-size 18px
+    line-height 30px
+    letter-spacing 6px
+
+@media (max-width: 490px)
+  .about
+    width 100%
+    box-sizing border-box
+    padding 40px 10px 56vh 10px
+    margin 0
+    font-size 12px
+    letter-spacing 3px
+    .word-blur
+      margin-right 10px
 </style>

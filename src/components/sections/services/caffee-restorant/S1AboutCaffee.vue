@@ -1,7 +1,13 @@
 <template lang="pug">
   Services
     template(#img-background="")
-      img.background(src="/static/backgrounds/caffee.jpg")
+      img.background(src="/static/services/caffee/caffee.jpg")
+    template(#text-left="")
+      .text-left
+        p Кафе предоставляет:
+        p -Комплексное меню
+        p -Меню для проведения
+        p &nbsp;праздников и мероприятий
     template(#text-background="")
       p Преимущества кафе Уржум:
       p -Только свежие ингридиенты

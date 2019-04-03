@@ -5,9 +5,9 @@
       logo(:position="scrollStatus")
       main-menu.menu-wrap
 
-    progress-bar.br(id="progressBar")
+    progress-bar.br(id="progressBar", v-if="this.widthWindow > 490")
 
-    transition(name="fade", mode="out-in")
+    transition(name="fade-page", mode="out-in")
       router-view(
         @scrollValue="getScroll($event)",
         :class="{'is-call': blurStatus}"
@@ -15,15 +15,18 @@
 
     back-call
 
-    transition(name="show-lightbox", key="show-lightbox")
+    transition(
+      name="show-lightbox",
+      key="show-lightbox"
+    )
       lightbox(
         #from-slider="",
         v-if="lightboxParam.state",
         :data-lightbox="lightboxParam",
         @changeSlide="lightboxParam.data = $event")
         img.show-slide(
-          :src="'/static/'+lightboxParam.folder+lightboxParam.data+'.jpg'",
-          :alt="'Слайд-'+lightboxParam.data"
+          :src="'/static/'+lightboxParam.folder+lightboxParam.data.name+'.jpg'",
+          :alt="lightboxParam.data.title"
         )
 </template>
 
@@ -60,8 +63,9 @@ export default {
         state: false,
         images: null,
         folder: '1',
-        data: ''
-      }
+        data: null
+      },
+      widthWindow: window.innerWidth
     }
   },
   methods: {
@@ -75,8 +79,8 @@ export default {
   created () {
     this.lineScrollDisplay = document.querySelector('html')
 
-    eventEmitter.$on('openLightbox', (e) => {
-      this.lightboxParam = Object.assign(this.lightboxParam, e)
+    eventEmitter.$on('openLightbox', e => {
+      this.lightboxParam = Object.assign({}, this.lightboxParam, e)
       if (this.lightboxParam.images) {
         this.lightboxParam.state = true
       }
@@ -86,6 +90,10 @@ export default {
       this.lightboxParam.data = ''
       this.lightboxParam.images = null
       this.lightboxParam.state = false
+    })
+
+    eventEmitter.$on('resize', e => {
+      this.widthWindow = e
     })
   }
 }
@@ -123,19 +131,19 @@ export default {
     &:active, &:focus
       outline none
 
-  .fade-enter-active, .fade-leave-active
-    transition opacity .2s
+  .fade-page-enter-active, .fade-page-leave-active
+    opacity 1
     transition opacity .2s
 
-  .fade-enter, .fade-leave-to
+  .fade-page-enter, .fade-page-leave-active
     opacity 0
 
   .wrapper_blur
     filter blur(0.1px)
-    transition filter .6s ease-in !important
+    transition filter .6s ease-in
   .is-call
     filter blur(5px)
-    transition filter .6s ease-in !important
+    transition filter .6s ease-in
 
   .show-lightbox-enter-active, .show-lightbox-leave-active
     transition all 0.3s ease

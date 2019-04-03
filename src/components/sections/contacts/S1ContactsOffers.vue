@@ -61,4 +61,16 @@ export default {
     font-weight bold
   .position
     margin 10px
+
+@media (max-width: 620px)
+  .block-wrap
+    pointer-events auto
+    transform translate(0,0)!important
+    padding 10px
+    display flex
+    align-items center
+    justify-content center
+  .block-info
+    position relative
+    margin-right 0
 </style>

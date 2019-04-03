@@ -1,12 +1,12 @@
 <template lang="pug">
-  .container-logo(:class="{'logo-in-title': changeStateLogo}")
-    router-link(to="/", alt="Логотип Гостиница Уржум")
+  .container-logo(:class="{ 'logo-in-title': size }", :position-data="position")
+    router-link(to="/", alt="Логотип Гостиниц0 Уржум")
       svg(
         xmlns="http://www.w3.org/2000/svg",
         viewBox="0 0 78.71 71.32",
-        :width="changeStateLogo*60+60",
-        :height="changeStateLogo*60+60",
-        :class="{ 'show-branch': changeStateLogo }"
+        :width="size*60+60",
+        :height="size*60+60",
+        :class="{ 'show-branch': size }"
       )
         path.active(d="M14.87,58.1a15.24,15.24,0,0,0-1.68-13.25c-3-4.79-9.94-10-11.52-13.8-2.23-4.75-3-18.15,6.66-20.22,9.26-1.45,14,5.93,19.89,7.78,5.06,1.71,8.09-5.53,4.48-8.06a3.3,3.3,0,0,0-3.59-.18,2.69,2.69,0,0,0-1.22,3.37c.22.7,1.33,1.39,2,.88-.59-.23-.82-.59-.7-1.06s.5-.73.88-.65a.81.81,0,0,1,.62.94,1.36,1.36,0,0,1-.66,1c-.6.43-1.43.12-2.11-.63a3,3,0,0,1-.41-2.26A3.25,3.25,0,0,1,31,9.58c2.61.15,3.63,2.44,3.59,4.36A5.43,5.43,0,0,1,32,18.54c-1.63,1-3.51.75-5.48-.07l-8.23-5C25,17.16,28,24,27,27.46a3.12,3.12,0,0,1-4,2,2.09,2.09,0,0,1-1-2.79,1.1,1.1,0,0,1,1.92-.12,1.13,1.13,0,0,1-.23,1.59c-.4.29-.92-.16-.91-.55a.58.58,0,0,1,.59-.57.56.56,0,0,1,.44.35c.06.11.22,0,.21-.08a1.18,1.18,0,0,0-.69-1,1,1,0,0,0-1.18.65,1.74,1.74,0,0,0,.16,1.69,2.47,2.47,0,0,0,3.52-.11c3.76-4.15-5.07-16.32-14.22-16.91,3.43,1.57,5.53,4,5.86,8.11.27,2.71-1.94,6-4.81,6a3.82,3.82,0,0,1-3.74-5,3.18,3.18,0,0,1,3-2.21,2.19,2.19,0,0,1,2,.91,2.31,2.31,0,0,1-.28,3.08c-.72.59-1.5.64-2,.13a1.34,1.34,0,0,1-.28-1.16c.12-.57.69-.74,1-.34a.64.64,0,0,1-.19.82.52.52,0,0,1-.67-.08c.08.59.38,1,1,.91A1.82,1.82,0,0,0,14,21.34a2.1,2.1,0,0,0-1.6-2.63A3,3,0,0,0,9,21.44a3.71,3.71,0,0,0,1.61,3.39,4.1,4.1,0,0,0,4.61-.63c1.57-1.69,2.42-3.82,1-7.31-.69-1.52-2.58-4.28-5.75-4.83-2.71-.49-4.75.6-6.53,2.27a6.17,6.17,0,0,1,4-1.36,3.68,3.68,0,0,1,3.34,2.78,3,3,0,0,1-1,3c-1.07.84-2,1-2.7.31A1.66,1.66,0,0,1,7.26,17c.56-.8,1.78-.5,1.85.15a.8.8,0,0,1-.32.81c.16-.31.32-.5.13-.86s-1.41-.37-1.61.49A1.35,1.35,0,0,0,7.85,19a1.75,1.75,0,0,0,2-.33,3,3,0,0,0,.86-2.71,3.16,3.16,0,0,0-3.45-2.42,5.67,5.67,0,0,0-4.06,1.81c-1.19,1.25-.63,3.8-.07,5.75,1.55,4.61,7.59,9.45,11.29,14.61A19.89,19.89,0,0,1,18,46.75,26.8,26.8,0,0,1,14.87,58.1Z")
         path.active(d="M6.88,17.5c.55-1.76-1.24-3.26-2.58-2.36.32-.05.47.13.82.14s.48.33.54.59a1.72,1.72,0,0,0-2.38,0c.63.12,1,.83,1.35,1.15.62.53,1.31.13,1.68.17A.72.72,0,0,1,6.88,17.5Z")
@@ -25,26 +25,49 @@
 export default {
   name: 'logo',
   props: ['position'],
-  computed: {
-    changeStateLogo () {
-      return (this.position === 0 && this.$route.path === '/') ? 1 : 0
+  data () {
+    return {
+      size: 0,
+      pos: 0
     }
+  },
+  methods: {
+    changeSize (e) {
+      this.pos = e
+      if (this.$route.path === '/') { this.size = this.pos ? 0 : 1 }
+    }
+  },
+  watch: {
+    '$route' (to, from) {
+      if (to.name === 'Home') {
+        this.pos ? this.size = 0 : setTimeout(() => { this.size = 0; this.size = 1 }, 1000)
+      } else {
+        this.size = 0
+      }
+    },
+    position () {
+      this.changeSize(this.position)
+    }
+  },
+  created () {
+    this.changeSize(window.pageYOffset)
   }
 }
 </script>
 
 <style lang='stylus' scoped>
 .container-logo
+  padding 0 30px
   display flex
   align-items center
   position absolute
   left 0
-  top 0
-  z-index 1000
-  padding 3px 30px
+  top 3px
+  z-index 1001
   &.logo-in-title
-    left 17.2vw
-    top 6.4vw
+    left calc(17vw + 16px)
+    top calc(9vw - 12px)
+    padding 0 20px
 
 .show-branch
   .active
@@ -66,4 +89,16 @@ for dash in 1..2
     to
       stroke-dashoffset 0
       fill #ff6c26
+
+@media (max-width: 1024px) and (orientation: portrait)
+  .container-logo
+    &.logo-in-title
+      top calc(20vh - 12px)
+
+@media (max-height: 823px) and (max-width: 480px) and (orientation: portrait)
+  .container-logo
+    transform scale(0.7)
+    &.logo-in-title
+      top calc(14vh - 8px)
+      left calc(7vw + 40px)
 </style>

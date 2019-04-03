@@ -5,7 +5,7 @@
         offer(v-for="offer in caffee" :key="offer.id")
           template(#img="")
             img.img(
-              :src="'/static/caffee/icons/'+offer.icon+'.png'",
+              :src="'/static/services/caffee/icons/'+offer.icon+'.png'",
               width="100",
               height="100"
             )
@@ -28,7 +28,7 @@ export default {
   },
   data () {
     return {
-      caffee: caffee
+      caffee
     }
   }
 }

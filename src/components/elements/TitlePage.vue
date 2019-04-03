@@ -54,4 +54,15 @@ export default {
       letter-spacing 10px
       left 5vw
       position relative
+
+  @media (max-width: 840px)
+    .start h1
+      font-size 26px
+      padding-right 20px
+
+  @media (max-width: 490px)
+    .start h1
+      font-size 22px
+      line-height 38px
+      letter-spacing 7px
 </style>

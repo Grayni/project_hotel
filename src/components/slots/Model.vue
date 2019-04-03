@@ -1,5 +1,5 @@
 <template lang="pug">
-  .model.wrapper_blur
+  .model.wrapper_blur(:class="{'show-smooth': showSmooth}")
     title-page(:title-text="titleText")
     slot.cont content
     footer-wrap.footer
@@ -14,6 +14,14 @@ export default {
   props: ['title-text'],
   components: {
     TitlePage, FooterWrap
+  },
+  data () {
+    return {
+      showSmooth: false
+    }
+  },
+  mounted () {
+    this.showSmooth = true
   }
 }
 </script>
@@ -25,4 +33,10 @@ export default {
     min-height 100vh
     padding-top 100px
     background #f1eee9
+    opacity 0
+    transition opacity 0.5s ease
+    overflow-x hidden
+    &.show-smooth
+      opacity 1
+      transition opacity 0.5s ease
 </style>

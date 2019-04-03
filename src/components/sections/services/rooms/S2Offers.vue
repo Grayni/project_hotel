@@ -5,7 +5,7 @@
         offer(v-for="offer in offers" :key="offer[0]")
           template(#img="")
             img.img(
-              :src="'/static/rooms/offers/'+offer[0]+'.png'",
+              :src="'/static/services/rooms/offers/'+offer[0]+'.png'",
               width="100",
               height="100"
             )
@@ -65,4 +65,7 @@ export default {
     border-top 1px solid #6f5c56
     display inline-block
     color #6f5c56
+  @media (max-width: 1240px)
+    .offers
+      padding-top 20px
 </style>
