@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+		<!--	created with www.mysitemapgenerator.com	-->
+		<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<url>
+	<loc>https://urzhum.com/</loc>
+	<lastmod>2019-04-09T13:06:33+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://urzhum.com/rooms/</loc>
+	<lastmod>2019-04-09T13:06:36+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://urzhum.com/sauna/</loc>
+	<lastmod>2019-04-09T13:06:36+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://urzhum.com/caffee-restorant/</loc>
+	<lastmod>2019-04-09T13:06:37+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://urzhum.com/contacts/</loc>
+	<lastmod>2019-04-09T13:06:37+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://urzhum.com/about/</loc>
+	<lastmod>2019-04-09T13:06:38+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+</urlset>

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "sauna-tea",
+    "icon": "tea",
+    "header": "Ароматный чай",
+    "description": "Чай на родниковой воде с медом или вареньем"
+  },
+  {
+    "id": "sauna-towel",
+    "icon": "towel",
+    "header": "Душевые принадлежности",
+    "description": "Выдаем халат, полотенце и тапочки"
+  },
+  {
+    "id": "sauna-sofa",
+    "icon": "sofa",
+    "header": "Мягкие диваны и кресла",
+    "description": "Уютная комната отдыха с компортной мебелью"
+  },
+  {
+    "id": "sauna-karaoke",
+    "icon": "karaoke",
+    "header": "Караоке и игры",
+    "description": "Караоке, wi-fi, тв, шашки, шахматы, нарды"
+  }
+]

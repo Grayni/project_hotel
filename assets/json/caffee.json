@@ -1,0 +1,20 @@
+[
+  {
+    "id": "caffee-eco",
+    "icon": "eco",
+    "header": "Экологически чистые продукты",
+    "description": "Тщательный отбор продукции"
+  },
+  {
+    "id": "caffee-meat",
+    "icon": "meat",
+    "header": "Продукты от фермеров",
+    "description": "Сотрудничаем с проверенными поставщиками"
+  },
+  {
+    "id": "caffee-canned-food",
+    "icon": "canned-food",
+    "header": "Свои соления и консервы",
+    "description": "Домашние заготовки специально для Вас"
+  }
+]

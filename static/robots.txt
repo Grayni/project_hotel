@@ -1,0 +1,3 @@
+User-agent: *
+Sitemap: http://urzhum.com/sitemap.xml
+Host: urzhum.com
