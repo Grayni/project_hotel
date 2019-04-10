@@ -58,7 +58,7 @@ export default {
     sendData () {
       axios({
         method: 'post',
-        url: '/',
+        url: 'api',
         data: {
           name: this.name,
           phone: this.phoneNumber
