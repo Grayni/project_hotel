@@ -19,6 +19,7 @@
 <script>
 import { eventEmitter } from '@/plugins/eventEmitter'
 import blurStatus from '@/components/mixins/blurStatus'
+import axios from 'axios'
 
 export default {
   name: 'back-call',
@@ -34,7 +35,16 @@ export default {
       eventEmitter.$emit('closeCallBack')
     },
     sendData () {
-      console.log(this.name, this.phoneNumber)
+      axios({
+        method: 'post',
+        url: 'http://grayni.ru',
+        data: {
+          name: this.name,
+          phone: this.phone
+        }
+      })
+        .then(response => console.log(response))
+        .catch(e => console.log(e))
     }
   }
 }

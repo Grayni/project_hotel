@@ -1251,7 +1251,7 @@
         span.parts-wrap__title {{ image.name }}
 </template>
 <script>
-import Gauss from '@/components/apps/Gauss'
+import Gauss from '@/components/apps/gauss'
 
 import blurStatus from '@/components/mixins/blurStatus'
 

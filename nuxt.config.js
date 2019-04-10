@@ -62,7 +62,7 @@ module.exports = {
     /*
     ** You can extend webpack config here
     */
-   vendor: ['swiper', 'ksvuescrollmagic'],
+   vendor: ['swiper', 'ksvuescrollmagic', 'axios'],
     extend(config, ctx) {
       if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({
