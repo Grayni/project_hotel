@@ -44,7 +44,18 @@ module.exports = {
   ** Nuxt.js modules
   */
   modules: [
-    'vue-yandex-maps/nuxt'
+    'vue-yandex-maps/nuxt',
+    [
+      '@nuxtjs/yandex-metrika',
+      {
+        id: '53241955',
+        webvisor: true,
+        clickmap: true,
+        trackLinks: true,
+        accurateTrackBounce: true,
+        trackHash: true
+      }
+    ],
   ],
 
   /*
