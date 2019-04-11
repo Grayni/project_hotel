@@ -7,11 +7,11 @@ const configure = JSON.parse(fs.readFileSync('./.config.json'))
 const app = express()
 
 let transporter = nodemailer.createTransport({
-  service: 'gmail',
+  host: 'smtp.gmail.com',
+  port: 587,
   secure: false,
-  port: 25,
   auth: {
-    user: 'info.urzhum@gmail.com',
+    user: configure.user,
     pass: configure.pass
   },
   tls: {
@@ -44,7 +44,7 @@ app.post('/', (req, res) => {
     res.end(JSON.stringify(1))
   }
 })
-console.log('test')
+
 module.exports = {
   path: '/api',
   handler: app
