@@ -15,7 +15,7 @@
               .wrap-politics
                 .politics.
                   Отправляя данные,<br> Вы согласны с
-                  #[a.link-politics(href="~/assets/politics.pdf", title="Политика конфинденциальности гостиницы Уржум", target="_blank") политикой сайта]
+                  #[a.link-politics(href="/politics.pdf", title="Политика конфинденциальности гостиницы Уржум", target="_blank") политикой сайта]
             .state.send(v-if="stateMessage === 2", key="state-2")
               span Некорректные данные. Попробуйте снова.
             .state.send(v-if="stateMessage === 1", key="state-3")
