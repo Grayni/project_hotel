@@ -1283,8 +1283,8 @@ export default {
   },
   methods: {
     showIcon (e) {
-      this.images[e].status = (this.images[e].status) ? 0 : 1
-      this.showPart = this.showPart ? 0 : 1
+      this.images[e].status = this.images[e].status === false
+      this.showPart = this.showPart === false
     },
     mouseBt () {
       return true
@@ -1305,7 +1305,7 @@ export default {
 
       this.rememberAnimation = true
       window.requestAnimationFrame(this.readAndUpdatePage)
-      this.showLetter = (window.pageYOffset > 0) ? 1 : 0
+      this.showLetter = window.pageYOffset > 0
 
       this.$emit('scrollValue', window.pageYOffset)
       this.position = window.pageYOffset
