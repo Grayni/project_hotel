@@ -114,7 +114,7 @@ export default {
 }
 </script>
 
-<style lang="sass">
+<style lang="stylus">
 .plugin-slider
   width: 80vw
   max-width: 1500px
