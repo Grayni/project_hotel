@@ -14,15 +14,15 @@
   },
   "dependencies": {
     "@nuxtjs/yandex-metrika": "^0.1.1",
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "body-parser": "^1.18.3",
     "cross-env": "^5.2.0",
     "express": "^4.16.4",
     "ks-vue-scrollmagic": "^1.0.2",
     "kute.js": "^1.6.6",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.14.1",
     "nodemailer": "^6.1.0",
-    "nuxt": "^2.4.0",
+    "nuxt": "^2.12.2",
     "nuxt-babel": "^1.0.1",
     "v-mask": "^1.3.3",
     "vue-awesome-swiper": "^3.1.3",
@@ -59,7 +59,8 @@
     "pug-loader": "^2.4.0",
     "pug-plain-loader": "^1.0.0",
     "raw-loader": "^2.0.0",
-    "sass-loader": "^7.1.0",
+    "sass-loader": "^7.3.1",
+    "style-loader": "^1.2.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2"
   }

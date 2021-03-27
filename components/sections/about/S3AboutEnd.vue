@@ -3,7 +3,7 @@
     .top-block(id="target-top-cross")
       fade-string(:title="'Отдохнуть и расслабиться'", :strings="strings", :target="'.map'", :parent="'#target-top-cross'")
     .wrap-landscape
-      img.landscape(src="~assets/images/about/background-down.jpg")
+      img.landscape(src="/images/about/background-down.jpg")
 </template>
 
 <script>

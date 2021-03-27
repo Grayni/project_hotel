@@ -2,7 +2,7 @@
   section
     .sky.wrapper_blur(:style="{ 'opacity': posSky }", :class="{ 'is-call': blurStatus }")
 
-    .title-site.wrapper_blur(:style="{ 'opacity': posTitle }", :class="{ 'is-call': blurStatus }")
+    .title-site(:style="{ 'opacity': posTitle }", :class="{ 'is-call': blurStatus }")
       h1(:class="{ 'show-title': showElement }")
         b(:class="{ 'show-letter': showLetter }") У
         span ржум
@@ -1245,7 +1245,7 @@
       .parts-wrap__unit-part(v-for="image in images", :key="image.index+'-key'", :class="{ 'smooth-show': image.status }")
         img.parts-wrap__img(
           :class="'img-'+image.index",
-          :src='"~/assets/images/parts/"+image.index+".svg"',
+          :src="`/images/parts/${image.index}.svg`",
           alt="service"
         )
         span.parts-wrap__title {{ image.name }}
@@ -1414,8 +1414,11 @@ export default {
     left 0
     transition left 0.9s ease, opacity 1s ease
     opacity 0
+    span
+      font 110px 'Vivaldi'
     b
       opacity 0
+      font 110px 'Vivaldi'
     &.show-title
       transition left 0.9s ease, opacity 1.5s ease-in .3s
       left 10px
@@ -1696,7 +1699,7 @@ export default {
     animation-delay 2s
 
 .bird
-  background-image url(~assets/images/svg/bird-cells.svg)
+  background-image url('/images/svg/bird-cells.svg')
   background-size auto 100%
   background-repeat no-repeat
   width 88px

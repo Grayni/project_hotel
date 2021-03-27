@@ -20,7 +20,7 @@
           li(v-for="(tariff, index) in price" :key="'price-'+index")
             .wrap-value-person
               .value-person(v-for="num in index+1")
-                img(src="~/assets/images/services/rooms/icons-rooms/man.png" width="36" height="36")
+                img(src="/images/services/rooms/icons-rooms/man.png" width="36" height="36")
                 span(v-if="num === 1 && index+1 > 1 || num === 2 && index+1 > 2") +
             slot.price(name="price" :tariff="tariff")
     .block.booking

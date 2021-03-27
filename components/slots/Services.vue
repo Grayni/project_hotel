@@ -89,12 +89,17 @@ export default {
       top 5vh
       p
         font-size 14px
-    .wrap-background
-      max-height none
+    // .wrap-background
+    //   display block
+    //   max-height none
 
   @media (max-width: 1150px)
     .wrap-background
       height auto
+      display block
+      max-height none
+      img
+        transform: translate3d(0, 0, 0) !important
     .background
       top 0
     .text-background, .text-left

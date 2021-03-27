@@ -1,20 +1,20 @@
 <template lang="pug">
   .complex
     .gallery
-      img.hotel(src="~/assets/images/about/hotel-2.jpg")
+      img.hotel(src="/images/about/hotel-2.jpg")
       .gallery__in
-        img.hotel(src="~/assets/images/about/hotel.jpg")
+        img.hotel(src="/images/about/hotel.jpg")
 
     .cross-wrap
       .cross-img-text
         .cross-wrap-in
-          img.cross(src="~/assets/images/about/cross.jpg" width="700")
+          img.cross(src="/images/about/cross.jpg" width="700")
         .wrap-complex-text
           .complex-text
             p Комплекс построен относительно недавно (в 2017 году).
             p Он располагается на въезде в город Уржум на Отрясовской горе рядом с поклонным крестом.
 
-          img.god(src="~/assets/images/about/god.jpg" width="600")
+          img.god(src="/images/about/god.jpg" width="600")
           .map
             a(href="https://yandex.ru/maps/?um=constructor%3A52d7859f4d561c6214c01ebba2562f2b6cd65010d7f851a111c51341b479e752&amp;source=constructorStatic" target="_blank")
               img(src="https://api-maps.yandex.ru/services/constructor/1.0/static/?um=constructor%3A52d7859f4d561c6214c01ebba2562f2b6cd65010d7f851a111c51341b479e752&amp;width=570&amp;height=250&amp;lang=ru_RU" alt="" style="border: 0;")
@@ -170,7 +170,7 @@ export default {
       position absolute
       width 100%
     .map
-      margin-top 70vh
+      margin-top 20px
       width 100%
       display flex
       justify-content flex-end

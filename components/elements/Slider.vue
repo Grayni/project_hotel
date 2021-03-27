@@ -11,7 +11,7 @@
         )
           .wrap-slide
             img(
-              :src='"~/assets/images/slider/"+img.name+".jpg"',
+              :src="`/images/slider/${img.name}.jpg`",
               :alt="'Слайд-'+img.title"
             )
 

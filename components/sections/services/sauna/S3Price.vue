@@ -9,7 +9,7 @@
             .col(v-for="item in section.cost")
               .wrap-item
                 div.name {{ item.human }} человек
-                div.price {{ item.price }} рублей
+                div.price {{ item.price }} {{section.dim}}
           .col
             .wrap-item {{ section.services }}
 </template>
@@ -25,6 +25,7 @@ export default {
         {
           id: 'mini-sauna',
           name: 'Маленькая сауна',
+          dim: 'рублей/2 часа',
           cost: [
             {
               human: 'до 4',
@@ -40,17 +41,18 @@ export default {
         {
           id: 'big-sauna',
           name: 'Большая сауна',
+          dim: 'рублей/3 часа',
           cost: [
             {
-              human: 'до 6',
-              price: 2400
+              human: 'до 5',
+              price: 5000
             },
             {
               human: '+1',
-              price: 400
+              price: 1000
             }
           ],
-          services: 'Парная, хамам, большая комната отдыха, 3 душевых'
+          services: 'Парная, хамам, бассейн, большая комната отдыха, 2 душевых'
         }
       ],
       element: '.price-block'

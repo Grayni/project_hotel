@@ -4,7 +4,7 @@
       offer(v-for="offer in caffee" :key="offer.id")
         template(#img="")
           img.img(
-            :src='"~/assets/images/services/caffee/icons/"+offer.icon+".png"',
+            :src="`/images/services/caffee/icons/${offer.icon}.png`",
             width="100",
             height="100"
           )

@@ -7,7 +7,7 @@
       )
         img(
           name="unique-photo",
-          :src='"~/assets/images/services/"+folder+"/gallery/thumbnails/"+image.name+".jpg"',
+          :src="`/images/services/${folder}/gallery/thumbnails/${image.name}.jpg`",
           :title="image.title",
           :alt="image.title"
         )
@@ -19,7 +19,7 @@
         )
           img(
             name="unique-photo",
-            :src='"~/assets/images/services/"+folder+"/gallery/thumbnails/"+image.name+".jpg"',
+            :src="`/images/services/${folder}/gallery/thumbnails/${image.name}.jpg`",
             :title="image.title",
             :alt="image.title"
           )

@@ -5,7 +5,7 @@
         offer(v-for="offer in offers" :key="offer[0]")
           template(#img="")
             img.img(
-              :src='"~/assets/images/services/rooms/offers/"+offer[0]+".png"',
+              :src="`/images/services/rooms/offers/${offer[0]}.png`",
               width="100",
               height="100"
             )
@@ -34,7 +34,7 @@ export default {
       offers: [
         ['booking', 'Круглосуточное бронирование', 'Услуги службы приёма и размещения'],
         ['parking', 'Парковка', 'Всегда чистая и освещенная'],
-        ['breackfast', 'Горячий завтрак', 'Бесплатный завтрак за каждый день прибывания'],
+        ['breackfast', 'Горячий завтрак', 'Завтрак к удобному времени'],
         ['cleaning', 'Уборка номеров', 'Ежедневная и промежуточная*'],
         ['tv', 'Телевидение', 'Телевизор со спутниковым ТВ'],
         ['wifi', 'Wi-Fi', 'Скорость до 100мбит/с'],

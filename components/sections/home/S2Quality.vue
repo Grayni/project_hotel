@@ -1,7 +1,6 @@
 <template lang="pug">
 
   .wrap-quality.wrapper_blur(is="section")
-
     svg.arc(xmlns="http://www.w3.org/2000/svg", viewBox="0 -10 2201.46 249.45")
       defs
         Shadow
@@ -268,7 +267,7 @@ export default {
     position relative
     background-color #f1eee9
     div
-      background-image url('~assets/images/backgrounds/pillow-parallax.jpg')
+      background-image url('/images/backgrounds/pillow-parallax.jpg')
       background-repeat no-repeat
       background-size cover
       position absolute

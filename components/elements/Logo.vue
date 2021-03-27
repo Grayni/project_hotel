@@ -34,21 +34,23 @@ export default {
   },
   methods: {
     changeSize () {
-      if (this.$route.path === '/') {
-        this.size = this.pos ? 0 : 1
+      if (this.$route.path === '/' && this.pos < 20) {
+        this.size = 1
+      } else if (this.$route.path === '/' && this.pos >= 20) {
+        this.size = 0
       }
     }
   },
   watch: {
-    '$route' (to, from) {
-      if (to.path === '/') {
-        this.pos ? this.size = 0 : setTimeout(() => { this.size = 0; this.size = 1 }, 1000)
-      } else {
-        this.size = 0
-      }
-    },
     pos () {
       this.changeSize()
+    },
+    '$route' (to, from) {
+      if (to.path !== '/') {
+        this.size = 0
+      } else if (to.path === '/') {
+        this.changeSize()
+      }
     }
   },
   mounted () {

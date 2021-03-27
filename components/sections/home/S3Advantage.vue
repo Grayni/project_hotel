@@ -20,7 +20,7 @@
           .offer__unit-part(v-for="unit in data" :key="unit.index+'-ind'")
             .offer__wrap-img
               img.offer__img(
-                :src='"~/assets/images/parts/"+unit.index+".svg"',
+                :src="`/images/parts/${unit.index}.svg`",
                 alt="service",
                 width="140",
                 height="140"
@@ -51,8 +51,8 @@ export default {
           index: 'rooms',
           name: 'Гостиничные номера',
           text: [
-            'Стоимость от: 1350 руб/ночь',
-            'Бесплатный завтрак'
+            'Стоимость от: 1100 руб/ночь',
+            'Завтрак: 200 руб'
           ]
         },
         {
@@ -67,7 +67,7 @@ export default {
           index: 'caffee-restorant',
           name: 'Кафе-ресторан',
           text: [
-            'Бизнес-ланч от: 250 руб',
+            'Бизнес-ланч от: 350 руб',
             'Аренда зала для корпаратива или свадьбы'
           ]
         }
@@ -167,7 +167,7 @@ export default {
     justify-items center
     z-index 2
     .right-land
-      background-image url('~assets/images/backgrounds/skin.jpg')
+      background-image url('/images/backgrounds/skin.jpg')
       background-size 144px 144px
       width 50vw
       height 130%
@@ -182,7 +182,7 @@ export default {
       &__in
         transform scale(-1, 1)
         width 100%
-        background-image url('~assets/images/backgrounds/door.jpg')
+        background-image url('/images/backgrounds/door.jpg')
         background-size cover
         position absolute
         width 100%

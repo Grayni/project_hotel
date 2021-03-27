@@ -5,7 +5,7 @@
         offer(v-for="offer in sauna" :key="offer.id")
           template(#img="")
             img.img(
-              :src='"~/assets/images/services/sauna/icons/"+offer.icon+".png"',
+              :src="`/images/services/sauna/icons/${offer.icon}.png`",
               width="100",
               height="100"
             )

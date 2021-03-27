@@ -18,7 +18,7 @@
         @changeSlide="lightboxParam.data = $event"
       )
         img.show-slide(
-          :src='"~/assets/images/"+lightboxParam.folder+lightboxParam.data.name+".jpg"',
+          :src="`/images/${lightboxParam.folder}${lightboxParam.data.name}.jpg`",
           :alt="lightboxParam.data.title",
           :title="lightboxParam.data.title"
         )
@@ -121,12 +121,21 @@ export default {
 
   .wrapper_blur
     filter blur(0.1px)
-    transition filter .6s ease-in
+    -webkit-filter blur(0.1px)
+    transition 1s filter linear
+    -webkit-transition 1s -webkit-filter linear
+    -moz-transition 1s -moz-filter linear
+    -ms-transition 1s -ms-filter linear
+    -o-transition 1s -o-filter linear
 
   .is-call
     filter blur(5px)
-    transition filter .6s ease-in
-
+    -webkit-filter blur(5px)
+    transition 1s filter linear
+    -webkit-transition 1s -webkit-filter linear
+    -moz-transition 1s -moz-filter linear
+    -ms-transition 1s -ms-filter linear
+    -o-transition 1s -o-filter linear
   .show-lightbox
     &-enter-active, &-leave-active
       transition all 0.3s ease

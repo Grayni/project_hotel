@@ -9,7 +9,7 @@
               h3.title-form Заказать<br>бесплатный звонок
               .inputs
                 input(type="text", name="name", placeholder="Ваше имя",  maxlength="26", v-model="name")
-                input.form-control(type="text", placeholder="+7 (XXX)-XXX-XX-XX", v-mask='"✆ +7 (###) - ### - ## - ##"', maxlength="26", v-model="phoneNumber")
+                input.form-control.ym-disable-keys(type="text", placeholder="+7 (XXX)-XXX-XX-XX", v-mask='"✆ +7 (###) - ### - ## - ##"', maxlength="26", v-model="phoneNumber")
               .wrap-send
                 .send-phone(@click="sendData()") Связаться!
               .wrap-politics

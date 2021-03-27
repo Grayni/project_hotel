@@ -74,7 +74,7 @@ export default {
 
 @media (max-width: 1280px)
   .about
-    padding-bottom 56vh
+    padding-bottom 250px
 
 @media (max-width: 868px)
   .about
@@ -83,10 +83,10 @@ export default {
     letter-spacing 6px
 
 @media (max-width: 490px)
-  .about
+  body .about
     width 100%
     box-sizing border-box
-    padding 40px 10px 56vh 10px
+    padding 40px 10px 250px 10px
     margin 0
     font-size 12px
     letter-spacing 3px
@@ -95,5 +95,5 @@ export default {
 
 @media (orientation: portrait)
   .about
-    padding-bottom 4vh
+    padding-bottom 250px
 </style>

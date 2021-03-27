@@ -1,10 +1,6 @@
 const pkg = require('./package')
 
 module.exports = {
-  mode: 'universal',
-  /*
-  ** Headers of the page
-  */
   head: {
     title: 'Гостиница Уржум',
     titleTemplate: '%s | Гостиница Уржум',
@@ -14,7 +10,7 @@ module.exports = {
       { hid: 'description', name: 'description', content: pkg.description }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: 'https://urzhum.com/favicon.ico' }
     ]
   },
 
@@ -28,7 +24,7 @@ module.exports = {
   */
   css: [
     '@/assets/styles/reset.css',
-    '@/assets/styles/fonts.sass',
+    '@/assets/styles/fonts.css',
     'swiper/dist/css/swiper.css'
   ],
 
@@ -73,20 +69,25 @@ module.exports = {
     /*
     ** You can extend webpack config here
     */
-   vendor: ['swiper', 'ksvuescrollmagic', 'axios'],
-    extend(config, ctx) {
-      if (ctx.isDev && ctx.isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
-      }
-    }
+    //vendor: ['swiper', 'ksvuescrollmagic', 'axios'],
+    // extend(config, ctx) {
+    //   if (ctx.isDev && ctx.isClient) {
+    //     config.module.rules.push({
+    //       enforce: 'pre',
+    //       test: /\.(js|vue)$/,
+    //       loader: 'eslint-loader',
+    //       exclude: /(node_modules)/
+    //     })
+    //   }
+    // }
   },
+
   serverMiddleware: [
     // API middleware
     '~/api/index.js'
-  ]
+  ],
+
+  telemetry: {
+    enabled: false
+  }
 }

@@ -1,7 +1,7 @@
 <template lang="pug">
   Services
     template(#img-background="")
-      img.background(src="~/assets/images/services/caffee/caffee.jpg")
+      img.background(src="/images/services/caffee/caffee.jpg")
     template(#text-left="")
       .text-left
         p Кафе предоставляет:

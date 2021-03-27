@@ -1,11 +1,11 @@
 <template lang="pug">
   Services
     template(#img-background="")
-      img.background(src="~/assets/images/services/sauna/sauna.jpg")
+      img.background(src="/images/services/sauna/sauna.jpg")
     template(#text-background="")
       p Наш гостиничные комплекс может предложить сауну или парную.
       p  В подарок:
-      p чайный сервиз с медом и вареньем.
+      p чай на травах с медом и вареньем.
       p Только для Вас раскроются все глубины вкуса целебных чаев, приготовленных на родниковой воде.
 </template>
 

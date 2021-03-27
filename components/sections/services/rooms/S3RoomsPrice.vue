@@ -11,7 +11,7 @@
 
         template(#img-start="")
           img.img(
-            :src='"~/assets/images/"+folder+"thumbnails/"+room.id+".jpg"',
+            :src="`/images/${folder}thumbnails/${room.id}.jpg`",
             @click="showLightbox(room.id, room.images[0], room.images)"
           )
 
@@ -23,7 +23,7 @@
 
         template(#icon="{ icon }")
           img(
-            :src='"~/assets/images/services/rooms/icons-rooms/"+icon[0]+".png"',
+            :src="`/images/services/rooms/icons-rooms/${icon[0]}.png`",
             :alt="icon[1]", :title="icon[1]",
             width="25",
             height="25"
