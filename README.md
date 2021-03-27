@@ -1,6 +1,6 @@
 # nuxt-urzhum
 
-> server side vue project-hotel
+> server side vue project-hotel test
 
 ## Build Setup
 
