@@ -85,3 +85,4 @@ sw.*
 
 config.json
 /.config.json
+.vscode/

@@ -29,11 +29,11 @@ export default {
           cost: [
             {
               human: 'до 4',
-              price: 2000
+              price: 2500
             },
             {
               human: '+1',
-              price: 400
+              price: 500
             }
           ],
           services: 'Парная, купель, комната отдыха, 1 душевая'
